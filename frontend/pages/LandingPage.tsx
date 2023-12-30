@@ -1,10 +1,11 @@
 import { View, Text, SafeAreaView, ImageBackground, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import LGradient  from 'react-native-linear-gradient'
-// import { Icon } from 'react-native-vector-icons/Icon'
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaskedView from '@react-native-masked-view/masked-view';
 import BigButton from '../components/BigButton';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
+
 
 
   
@@ -21,11 +22,10 @@ const GradientText = (props:any) => {
     );
   };
 
-  
-const LandingPage = () => {
+
+const LandingPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
     const handleButtonPress = () => {
-        // Handle button press action here
-        // console.log('Start Cooking Pressed');
+        
       };
 
   return (
@@ -33,16 +33,12 @@ const LandingPage = () => {
       <View style={styles.imageContainer}>
         <ImageBackground
           source={require('../assets/homeimage.png')}
-          style={styles.imageBackground}
-        >
+          style={styles.imageBackground}>
           <View style= {{marginTop: 20}}>
-            {/* <Text style={styles.imageText}>Eat better </Text> */}
+           
             <Text style={styles.imageText}>
               <Text>Eat </Text>
-              {/* <LGradient colors={['#FF5F6D', '#FFC371']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} >
-                <Text style={styles.gradientText}>better</Text>
-              </LGradient> */}
-      <GradientText style={styles.gradientText}>better</GradientText>
+              <GradientText style={styles.gradientText}>better</GradientText>
             </Text>
             <Text style={styles.imageText2}>every day!</Text>
           </View>
@@ -54,15 +50,8 @@ const LandingPage = () => {
           </View>
         </ImageBackground>
 
-        {/* <TouchableOpacity onPress={handleButtonPress} style={styles.button}>
-          <LGradient colors={['#FC1125', '#FF9300']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonGradient}>
-            <View style={styles.buttonContent}>
-              <Text style={styles.buttonText}>Start Cooking</Text>
-              <Icon name="arrow-forward" size={20} color="white" style={styles.buttonIcon} />
-            </View>
-          </LGradient>
-        </TouchableOpacity> */}
-        <BigButton btnLabel={'Start Cooking'}/>
+        
+        <BigButton btnLabel={'Start Cooking'} Press={()=>navigation.navigate('SignInPage')}/>
       </View>
     </SafeAreaView>
   )
