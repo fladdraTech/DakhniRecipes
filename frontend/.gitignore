@@ -43,55 +43,15 @@ project.xcworkspace
 /packages/react-native/template/android/app/build/
 /packages/react-native/template/android/build/
 
-# Buck
-.buckd
-buck-out
-/.lsp.buckd
-/.lsp-buck-out
-/packages/react-native/ReactAndroid/src/main/jni/prebuilt/lib/
-/packages/react-native/ReactAndroid/src/main/gen
-/.cpplsp.buckd
-
-# Android Studio
-.project
-.settings
-.classpath
-
-# Watchman
-.watchmanconfig
-
-# Android
-.idea
-.gradle
-local.properties
-*.iml
-/packages/react-native/android/*
-!/packages/react-native/android/README.md
 
 # Node
 node_modules
 *.log
 .nvm
-package-lock.json
-
-# OS X
-.DS_Store
-
-# Test generated files
-*.js.meta
-
-/coverage
-/third-party
-
-# Test Reports
-/reports
-
-# Stack Dumps generated when programs crash (Ex. bash.exe.stackdump on Win)
-*.stackdump
 
 # Root dir shouldn't have Xcode project
 /*.xcodeproj
-
+android/app/build/intermediates/
 # ReactCommon subdir shouldn't have Xcode project
 /packages/react-native/ReactCommon/**/*.xcodeproj
 
