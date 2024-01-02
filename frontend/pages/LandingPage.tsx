@@ -51,7 +51,7 @@ const LandingPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>
         </ImageBackground>
 
         
-        <BigButton btnLabel={'Start Cooking'} btnWidth={240} Press={() => navigation.navigate('SignUpPage')} btnPosition={'absolute'}/>
+        <BigButton btnLabel={'Start Cooking'} btnWidth={240} Press={() => navigation.navigate('SignInPage')} btnPosition={'absolute'}/>
       </View>
     </SafeAreaView>
   )

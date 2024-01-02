@@ -116,8 +116,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '500',
         color: 'black',
-        marginLeft: 5,
-        paddingLeft: 5,
+        marginTop: 20,
+        padding: 20,
+        marginLeft: 10,
         
       },
 
@@ -126,29 +127,25 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '300',
         color: 'black',
-        marginLeft: 5,
-        paddingLeft: 5,
-        marginTop:5
-        
+        marginLeft: 10,
+        paddingLeft: 20,
+        marginRight:9,
       },
 
       input: {
         height: 50,
         // margin: 12,
         borderWidth: 1,
-        marginLeft: 30,
-        marginRight: 30,
-        padding: 10,
         borderColor: '#FC1125',
         borderRadius: 10,
-        
+        position:"relative"
         
       },
 
       inputText: {
         marginLeft: 10,
         marginTop: 15,
-        paddingLeft: 20,
+        // paddingLeft: 20,
         lineHeight: 27,
         color: 'black',
 
