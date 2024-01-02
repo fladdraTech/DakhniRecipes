@@ -11,6 +11,7 @@ import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import ForgotPassPage from './pages/ForgotPassPage';
 import VerifyEmailPage from './pages/VerifyEmailPage';
 import ResetPassPage from './pages/ResetPassPage';
+import HomeScreen from './pages/HomeScreen';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
       
       >
       <Stack.Screen name='LandingPage' component={LandingPage} />
-
+      <Stack.Screen name='HomeScreen' component={HomeScreen} />
       <Stack.Screen name='SignInPage' component={SignInPage} />
       <Stack.Screen name='ForgotPassPage' component={ForgotPassPage} />
       <Stack.Screen name='VerifyEmailPage' component={VerifyEmailPage} />
