@@ -2,9 +2,18 @@ import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image } from 'r
 import React from 'react'
 import InputField from '../components/InputField'
 import BigButton from '../components/BigButton'
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
-const SignInPage = () => {
-    const [text, onChangeText] = React.useState('')
+
+
+
+const SignInPage = ({ navigation }: { navigation: NavigationProp<ParamListBase> }) => {
+  const [text, onChangeText] = React.useState('');
+
+  const handleButtonPress = () => {
+    // Implement the functionality for the button press
+  };
+
   return (
     <SafeAreaView style={styles.container}>
         <View>
@@ -12,17 +21,20 @@ const SignInPage = () => {
       <Text style= {styles.welcomeText}>Welcome back!</Text>
 
     </View>
+    
+    <View style={{marginTop: 20}}>
     <InputField textforInput={'Email'} placeholder={'Enter email'}></InputField>
     <InputField textforInput={'Password'} placeholder={'Enter password'}></InputField>
+    </View>
 
     <TouchableOpacity>
     <View>
-      <Text style={styles.forgotText}>Forgot Password?</Text>
+      <Text style={styles.forgotText} onPress={() => navigation.navigate('ForgotPassPage')}>Forgot Password?</Text>
     </View>
     </TouchableOpacity>
 
     
-        <BigButton btnLabel={'Sign In'} btnWidth={300} btnPosition={'relative'} marginTop={40}></BigButton>
+        <BigButton btnLabel={'Sign In'} btnWidth={300} btnPosition={'relative'} marginTop={40} Press={() => navigation.navigate('HomeScreen')}></BigButton>
 
         <TouchableOpacity style={styles.gButton}>
           <Image source={require('../assets/gbutton.png')} />
@@ -31,7 +43,7 @@ const SignInPage = () => {
     <View style={styles.bottomText}>
       <Text>Don’t have an account? </Text>
       <TouchableOpacity>
-        <Text>Sign up</Text>
+        <Text style={styles.signUpText} onPress={() => navigation.navigate('SignUpPage')}>Sign up</Text>
       </TouchableOpacity>
     </View>
     
@@ -48,12 +60,13 @@ const styles = StyleSheet.create({
 
     helloText: {
         fontSize: 30,
-        lineHeight: 40,
+        // lineHeight: 40,
         fontWeight: '500',
         color: 'black',
         textAlign: 'left',
         marginTop: 20,
-        padding: 20,
+        paddingLeft: 20,
+        paddingBottom: 10,
         marginLeft: 10,
     
       },
@@ -75,6 +88,7 @@ const styles = StyleSheet.create({
         fontWeight: '400',
         fontSize: 14,
         color: '#FC1125',
+        textDecorationLine: 'underline',
       },
 
       gButton: {
@@ -85,8 +99,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'center',
         marginTop: 10,
+      },
+
+      signUpText: {
+        color: '#FC1125',
+        textDecorationLine: 'underline'
       }
       
 })
+
 
 export default SignInPage

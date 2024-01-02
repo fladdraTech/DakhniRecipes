@@ -43,7 +43,7 @@ const LandingPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>
             <Text style={styles.imageText2}>every day!</Text>
           </View>
 
-          <View style = {{width: '75%'}}>
+          <View style = {{width: '70%'}}>
           <Text style={styles.imageText3}>Simple way to find </Text>
           <Text style={styles.imageText4}>Tasty Recipe</Text>
 
@@ -119,7 +119,9 @@ const styles = StyleSheet.create({
       overflow: 'hidden',
     },
     gradientText: {
-      fontSize: 24,
+      fontSize: 20,
+      // fontWeight: '400',
+      lineHeight: 27,
       fontWeight: 'bold',
       textAlign: 'center',
           
