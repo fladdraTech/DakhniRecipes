@@ -12,7 +12,6 @@ import ForgotPassPage from './pages/ForgotPassPage';
 import VerifyEmailPage from './pages/VerifyEmailPage';
 import ResetPassPage from './pages/ResetPassPage';
 import HomeScreen from './pages/HomeScreen';
-
 function App() {
 
   const Stack = createNativeStackNavigator();

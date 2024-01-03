@@ -1,22 +1,55 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import React, {useState} from 'react'
+import CustomSearchBar from '../components/CustomSearch'
+import FilterButton from '../components/FilterButton';
+import BottomNavigationBar from '../components/BottomNavigationBar';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
+
+  const [searchText, setSearchText] = useState('');
+
+  const handleSearch = (text: string) => {
+    //logic
+    setSearchText(text);
+  
+  }
+    const onItemTapped = (index: number) => {
+      switch (index) {
+        case 1: 
+        navigation.navigate('HomeScreen');
+        break;
+        
+        default:
+         
+          break;
+      }
+  };
+
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{height:'100%'}}>
       <View>
         <Text style ={styles.helloText}>Hello Tulip,</Text>
         <Text style={styles.welcomeText}>Welcome to the recipe paradise!</Text>
       </View>
 
+      <View style = {{marginLeft: 20, flexDirection: 'row', position: 'relative' }}>
+        <CustomSearchBar value={searchText} placeholder={'Search'} onChangeText={() => handleSearch} barWidth={'70%'}></CustomSearchBar>
+
+        <FilterButton btnWidth={40}></FilterButton>
+
+
+
+      </View>
+      <BottomNavigationBar onItemTapped={() => onItemTapped} selectedIndex={0}></BottomNavigationBar>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  },
+    flex: 1,  },
 
   helloText: {
     fontSize: 20,
@@ -39,6 +72,26 @@ const styles = StyleSheet.create({
     paddingLeft: 20
     
   },
+
+  
+
+  // squareImage: {
+  //   // flexDirection: 'row',
+  //   marginTop: 30,
+  //   height: 40,
+    
+  // },
+
+  // overLayImg: {
+  //   // flexDirection: 'row',
+  //   marginTop: 30,
+  //   height: 40,
+  //   // position: 'absolute',
+  //   // top: 50,
+  //   // left: 50,
+    
+  // }
 })
+
 
 export default HomeScreen
