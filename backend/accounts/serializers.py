@@ -6,7 +6,7 @@ class UserGetSerializer(ModelSerializer):
     class Meta:
         model = User
         # exclude = ('password', 'last_login')
-        exclude = ("last_login",)
+        exclude = ("last_login", "password")
 
 
 class UserSerializer(ModelSerializer):
