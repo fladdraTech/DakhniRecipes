@@ -4,8 +4,10 @@ import Card from '../components/Card';
 
 const  Sample= () => {
     return (
-      <View>
+      <View style={{flexDirection:'row',justifyContent:'flex-start',flexWrap:'wrap'}}>
         <Card CardName="Chicken" CardImage={require('../assets/sample.png')} />
+
+        
         {/* Add more Card components as needed */}
         </View>
     );
