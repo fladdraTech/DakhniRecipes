@@ -54,6 +54,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "dakhnirecipes.middlewares.AuthMiddleware",
+    "dakhnirecipes.middlewares.ExceptionMiddleware",
 ]
 
 ROOT_URLCONF = "dakhnirecipes.urls"
