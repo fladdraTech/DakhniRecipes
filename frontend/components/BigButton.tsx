@@ -76,7 +76,7 @@ const BigButton: React.FC<BigButtonProps> = ({btnLabel, btnWidth,btnPosition= 'a
               <Text style={styles.buttonText}>{btnLabel}</Text>
               <Icon name="arrow-forward" size={20} color="white" style={styles.buttonIcon} />
             </View>
-          </LinearGradient>
+          </LinearGradient> 
         </TouchableOpacity>
   )
 }

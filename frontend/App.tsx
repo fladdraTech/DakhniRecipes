@@ -6,7 +6,12 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LandingPage from './pages/LandingPage';
 import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage'
+import SignUpPage from './pages/SignUpPage';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import ForgotPassPage from './pages/ForgotPassPage';
+import VerifyEmailPage from './pages/VerifyEmailPage';
+import ResetPassPage from './pages/ResetPassPage';
+import HomeScreen from './pages/HomeScreen';
 import Sample from './pages/Sample';
 function App() {
 
@@ -21,8 +26,11 @@ function App() {
       
       >
       <Stack.Screen name='LandingPage' component={LandingPage} />
-
+      <Stack.Screen name='HomeScreen' component={HomeScreen} />
       <Stack.Screen name='SignInPage' component={SignInPage} />
+      <Stack.Screen name='ForgotPassPage' component={ForgotPassPage} />
+      <Stack.Screen name='VerifyEmailPage' component={VerifyEmailPage} />
+      <Stack.Screen name='ResetPassPage' component={ResetPassPage} />
 
       <Stack.Screen name='SignUpPage' component={SignUpPage} />
 
