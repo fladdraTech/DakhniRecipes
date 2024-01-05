@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 interface BottomBarProps {
-    onItemTapped: () => void;
+    onItemTapped: (index: number) => void;
     selectedIndex: number;
     
   }
@@ -54,12 +54,13 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
     return icon === 'empty_space' ? (<View key={index}></View>) : (
         <TouchableOpacity
         key={index}
-        onPress={() => onItemTapped()}
+        onPress={() => onItemTapped(index)}
         style={{
           alignItems: 'center',
         }}>
           
-          <Icon
+          
+            <Icon
             name={icon}
             size={30}
             color={selectedIndex === index ? '#FC1125' : '#D9D9D9'}
@@ -69,11 +70,7 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
           }
       )}
       
-
-
-       
-          
-          </View>
+        </View>
     </View>
   );
 };

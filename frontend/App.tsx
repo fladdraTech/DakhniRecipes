@@ -13,6 +13,9 @@ import VerifyEmailPage from './pages/VerifyEmailPage';
 import ResetPassPage from './pages/ResetPassPage';
 import HomeScreen from './pages/HomeScreen';
 import Sample from './pages/Sample';
+import SavedRecipePage from './pages/SavedRecipePage';
+import NotificationPage from './pages/NotificationPage';
+import AccountPage from './pages/AccountPage';
 function App() {
 
   const Stack = createNativeStackNavigator();
@@ -31,7 +34,9 @@ function App() {
       <Stack.Screen name='ForgotPassPage' component={ForgotPassPage} />
       <Stack.Screen name='VerifyEmailPage' component={VerifyEmailPage} />
       <Stack.Screen name='ResetPassPage' component={ResetPassPage} />
-
+      <Stack.Screen name='SavedRecipePage' component={SavedRecipePage} />
+      <Stack.Screen name='NotificationPage' component={NotificationPage} />
+      <Stack.Screen name='AccountPage' component={AccountPage} />
       <Stack.Screen name='SignUpPage' component={SignUpPage} />
 
       <Stack.Screen name='Sample' component={Sample} />
