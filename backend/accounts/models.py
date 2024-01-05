@@ -3,6 +3,8 @@ from django.contrib.auth.models import AbstractBaseUser
 from .managers import MyUserManager
 from uuid import uuid4
 
+from portal.choices import ChefStatusChoices
+
 class User(AbstractBaseUser):
     id        = models.UUIDField(primary_key=True, default=uuid4)
     name = models.CharField(max_length=128)
@@ -10,6 +12,7 @@ class User(AbstractBaseUser):
     is_admin  = models.BooleanField(default=False)
     profession = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
+    chef_status = models.CharField(max_length=50, choices=ChefStatusChoices.choices, default=ChefStatusChoices.PREPROCESSED)
     profile_pic = models.ImageField(upload_to="accounts",blank=True,null=True)
 
     registered_on = models.DateTimeField(auto_now_add=True)
