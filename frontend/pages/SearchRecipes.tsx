@@ -4,6 +4,7 @@ import CustomSearchBar from '../components/CustomSearch'
 import FilterButton from '../components/FilterButton';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import Card from '../components/Card';
 
 const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
@@ -42,6 +43,16 @@ const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) 
 
       </View>
       <BottomNavigationBar onItemTapped={() => onItemTapped} selectedIndex={0}></BottomNavigationBar>
+
+      <View style={{flexDirection: 'row', justifyContent: 'space-between',flexWrap:'wrap', marginRight: 20,marginLeft:20, marginTop: 20}}>
+          <Card CardName='Chicken'></Card>
+          <Card CardName='Chicken'></Card>
+          <Card CardName='Chicken'></Card>
+          <Card CardName='Chicken'></Card>
+          <Card CardName='Chicken'></Card>
+          <Card CardName='Chicken'></Card>
+          </View>
+        
     </SafeAreaView>
   )
 }

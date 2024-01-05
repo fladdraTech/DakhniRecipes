@@ -1,22 +1,24 @@
 import React from "react";
 import { Text,View,StyleSheet ,ImageBackground, DimensionValue} from "react-native";
 import LinearGradient from 'react-native-linear-gradient';
+import RatingChip from "./RatingChip";
 
 
 interface CardProps {
     CardName: string;
-    CardImage:string;
-    CardWidth:DimensionValue;
-    CardHeight:DimensionValue
+    CardImage?:string;
+    CardWidth?:DimensionValue;
+    CardHeight?:DimensionValue;
+    Rating?:string
   }
-  const Card: React.FC<CardProps> = ({CardName,CardImage,CardWidth=150,CardHeight=150}) => {
+  const Card: React.FC<CardProps> = ({CardName,CardImage,CardWidth=150,CardHeight=160,Rating}) => {
 
   return(
   <View style={{...styles.card,width:CardWidth,height:CardHeight}}>
       <ImageBackground source={require('../assets/sample.png')} style={styles.image} >
      <LinearGradient colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonGradient} />
         
-     <View style={{flexDirection:'row',justifyContent:'flex-start',flexWrap:'wrap'}}>
+     <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
         
 
         
@@ -27,6 +29,8 @@ interface CardProps {
         </View>
         
         <Text style={styles.name}>{CardName}</Text>
+
+        <RatingChip Rating={Rating} />
         
     </View>
   )}
@@ -58,7 +62,7 @@ interface CardProps {
 
     image: {
       width: 150,
-      height: 150,
+      height: 160,
       borderRadius: 15,
       alignItems:'center',
       overflow:'hidden',
