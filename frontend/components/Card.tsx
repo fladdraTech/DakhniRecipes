@@ -1,28 +1,40 @@
 import React from "react";
-import { Text,View,StyleSheet ,ImageBackground} from "react-native";
+import { Text,View,StyleSheet ,ImageBackground, DimensionValue} from "react-native";
+import LinearGradient from 'react-native-linear-gradient';
+
 
 interface CardProps {
     CardName: string;
     CardImage:string;
+    CardWidth:DimensionValue;
+    CardHeight:DimensionValue
   }
-  const Card: React.FC<CardProps> = ({CardName,CardImage}) => {
+  const Card: React.FC<CardProps> = ({CardName,CardImage,CardWidth=150,CardHeight=150}) => {
 
   return(
-    <View style={styles.card}>
+  <View style={{...styles.card,width:CardWidth,height:CardHeight}}>
       <ImageBackground source={require('../assets/sample.png')} style={styles.image} >
-     
+     <LinearGradient colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonGradient} />
+        
+     <View style={{flexDirection:'row',justifyContent:'flex-start',flexWrap:'wrap'}}>
+        
+
+        
+        {/* Add more Card components as needed */}
+        </View>
         </ ImageBackground>
            <View style={styles.overlay}> 
         </View>
         
         <Text style={styles.name}>{CardName}</Text>
+        
     </View>
   )}
 
   const styles = StyleSheet.create({
     card: {
         borderRadius: 15,
-        width:150,
+        // width:CardWidth,
         overflow: 'hidden', // To clip the overlay to the card boundaries
         margin: 10,
         alignItems:'center',
@@ -31,12 +43,26 @@ interface CardProps {
         shadowRadius: 4,
         position:'relative'
     },
+
+    buttonGradient: {
+      width:150,
+      height:'100%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderRadius: 8,
+      paddingHorizontal: 20,
+      paddingVertical: 14,
+      justifyContent:'center',
+
+    },
+
     image: {
       width: 150,
       height: 150,
       borderRadius: 15,
       alignItems:'center',
       overflow:'hidden',
+      backgroundColor:'black',
       opacity:0.7,
       zIndex:1
       
@@ -45,10 +71,9 @@ interface CardProps {
       width: 150,
       height: 150,
       position:'absolute',
-      backgroundColor:'black',
-      opacity:0.7,
+      opacity:1,
       zIndex:1,
-
+      
 
     },
 

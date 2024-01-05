@@ -6,6 +6,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import InputField from '../components/InputField'
 import BigButton from '../components/BigButton'
 import SignInPage from './SignInPage';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 // import { RootStackParamList } from './App';
 
@@ -23,7 +24,7 @@ type RegistrationScreenProps = {
 
 
 // Create RegistrationScreen component
-const RegistrationScreen: React.FC<RegistrationScreenProps> = ({ navigation }) => {
+const RegistrationScreen: React.FC<RegistrationScreenProps> = ({ navigation }: { navigation: NavigationProp<ParamListBase> }) => {
   const { control, handleSubmit, formState: { errors }, getValues } = useForm();
 
   const onSubmit = (data: any) => {
@@ -96,7 +97,7 @@ const RegistrationScreen: React.FC<RegistrationScreenProps> = ({ navigation }) =
      <View style={styles.bottomText}>
       <Text>Already a member? </Text>
       <TouchableOpacity>
-        <Text style={styles.SignInText}>Sign in</Text>
+        <Text style={styles.SignInText} onPress={() => navigation.navigate('SignInPage')}>Sign in</Text>
       </TouchableOpacity>  
     </View>
 

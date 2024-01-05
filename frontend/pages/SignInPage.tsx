@@ -34,7 +34,7 @@ const SignInPage = ({ navigation }: { navigation: NavigationProp<ParamListBase> 
     </TouchableOpacity>
 
     
-        <BigButton btnLabel={'Sign In'} btnWidth={300} btnPosition={'relative'} marginTop={40} Press={() => navigation.navigate('HomeScreen')}></BigButton>
+        <BigButton btnLabel={'Sign In'} btnWidth={300} btnPosition={'relative'} marginTop={40} Press={() => navigation.navigate('SearchRecipes')}></BigButton>
 
         <TouchableOpacity style={styles.gButton}>
           <Image source={require('../assets/gbutton.png')} />
