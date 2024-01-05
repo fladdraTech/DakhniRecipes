@@ -1,13 +1,20 @@
-import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, {useState} from 'react'
 import CustomSearchBar from '../components/CustomSearch'
 import FilterButton from '../components/FilterButton';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import CustomTabs from '../components/CustomTabs';
+import SavedBtn from '../components/SavedBtn';
+import DetailedCard from '../components/DetailedCard';
+import StepsCard from '../components/StepsCard';
+// import { ViewComponent } from 'react-native';
 
 const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
   const [searchText, setSearchText] = useState('');
+
+  const [selected,setSelected] = useState<string | undefined>(undefined)
 
   const handleSearch = (text: string) => {
     //logic
@@ -28,17 +35,39 @@ const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
 
 
   return (
-    <SafeAreaView style={{height:'100%'}}>
+    <SafeAreaView style={{height:'100%', backgroundColor: 'white'}}>
       <View>
         <Text style ={styles.helloText}>Hello Tulip,</Text>
         <Text style={styles.welcomeText}>Welcome to the recipe paradise!</Text>
       </View>
 
-      <View style = {{marginLeft: 20, flexDirection: 'row', position: 'relative' }}>
+      <View style = {{marginLeft: 20, flexDirection: 'column', position: 'relative' }}>
+        <View style={{flexDirection:'row'}}>
+
         <CustomSearchBar value={searchText} placeholder={'Search'} onChangeText={() => handleSearch} barWidth={'70%'}></CustomSearchBar>
 
         <FilterButton btnWidth={40}></FilterButton>
+        </View>
 
+        <ScrollView  horizontal={true} style={{flexDirection: 'row',maxWidth:'100%',paddingVertical:10}}>
+          <CustomTabs key={0} label={'Salad'}  selected={selected} setSelected={setSelected}></CustomTabs>
+          <CustomTabs key={1} label={'Breakfast'} selected={selected} setSelected={setSelected}></CustomTabs>
+          <CustomTabs key={2} label={'Appetizer'} selected={selected} setSelected={setSelected}></CustomTabs>
+          <CustomTabs key={3} label={'Noodle'} selected={selected} setSelected={setSelected}></CustomTabs>
+          <CustomTabs key={4} label={'Lunch'} selected={selected} setSelected={setSelected}></CustomTabs>
+          <CustomTabs key={5} label={'Lunch2'} selected={selected} setSelected={setSelected}></CustomTabs>
+
+        </ScrollView >
+
+
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 20, marginTop: 20}}>
+          <DetailedCard></DetailedCard>
+          <DetailedCard></DetailedCard>
+        </View>
+
+        <View>
+          <StepsCard></StepsCard>
+        </View>
 
 
       </View>
@@ -53,7 +82,6 @@ const styles = StyleSheet.create({
 
   helloText: {
     fontSize: 20,
-    // lineHeight: 40,
     fontWeight: '500',
     color: 'black',
     textAlign: 'left',
@@ -75,22 +103,7 @@ const styles = StyleSheet.create({
 
   
 
-  // squareImage: {
-  //   // flexDirection: 'row',
-  //   marginTop: 30,
-  //   height: 40,
-    
-  // },
-
-  // overLayImg: {
-  //   // flexDirection: 'row',
-  //   marginTop: 30,
-  //   height: 40,
-  //   // position: 'absolute',
-  //   // top: 50,
-  //   // left: 50,
-    
-  // }
+  
 })
 
 

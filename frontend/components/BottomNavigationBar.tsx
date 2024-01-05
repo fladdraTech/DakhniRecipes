@@ -11,9 +11,9 @@ interface BottomBarProps {
 const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedIndex }) => {
   const listofIcon = [
     'home', 
-    'saved',
+    'bookmark-outline',
     'empty_space',
-    'notification',
+    'notifications-outline',
     'person',
   ];
 
@@ -38,20 +38,20 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
         padding:20,flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',position:'relative'}}>
-           <View style={{ position: 'absolute', backgroundColor: 'red', width: 70, height: 70, borderRadius: 35, bottom: 33, zIndex: 10,left:'50%',
+           <TouchableOpacity style={{ position: 'absolute', backgroundColor: 'red', width: 70, height: 70, borderRadius: 35, bottom: 33, zIndex: 10,left:'50%',
            transform: [{ translateX:-25 }] ,alignItems:'center',justifyContent:'center',
            borderColor:'#f8f4f4',borderWidth:5,      shadowColor: 'black',
            shadowOpacity: 0.1,        shadowRadius: 24,
 
            }}>
            <Icon
-            name={'home'}
+            name={'add-outline'}
             size={30}
             color={'#D9D9D9'}
           />
-                </View>
+         </TouchableOpacity>
       {listofIcon.map((icon, index) => {
-return icon === 'empty_space' ? (<View></View>) : (
+    return icon === 'empty_space' ? (<View key={index}></View>) : (
         <TouchableOpacity
         key={index}
         onPress={() => onItemTapped()}
