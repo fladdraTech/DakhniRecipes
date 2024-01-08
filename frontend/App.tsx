@@ -17,6 +17,7 @@ import Sample from './pages/Sample';
 import SavedRecipePage from './pages/SavedRecipePage';
 import NotificationPage from './pages/NotificationPage';
 import AccountPage from './pages/AccountPage';
+import FilterPage from './pages/FilterPage';
 function App() {
 
   const Stack = createNativeStackNavigator();

@@ -5,9 +5,10 @@ import FilterButton from '../components/FilterButton';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import RatingChip from '../components/RatingChip';
-import CustomTabs from '../components/CustomTabs';
 import LinearGradient from 'react-native-linear-gradient';
 import BigButton from '../components/BigButton';
+import CustomTabs from '../components/CustomTabs';
+import CustomChips from '../components/CustomChips';
 
 
 const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
@@ -42,10 +43,10 @@ const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
 
       <Text style={styles.categoryText}>Time</Text>
       <View style={{flexDirection: 'row',maxWidth:'100%',paddingVertical:10,left:30}}>
-        <CustomTabs key={0} label={'All'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={1} label={'Newest'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={2} label={'Oldest'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={3} label={'Popularity'}  selected={selected} setSelected={setSelected}></CustomTabs>
+      <CustomChips key={0} label={'All'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={1} label={'Newest'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={2} label={'Oldest'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={3} label={'Popularity'}  selected={selected} setSelected={setSelected}></CustomChips>
       </View>
 
       <View style={{top:15}}>
@@ -60,16 +61,16 @@ const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
       <View style={{top:35}}>
       <Text style={styles.categoryText}>Category</Text>
       <View style={{flexDirection: 'row',flexWrap:'wrap',maxWidth:'100%',paddingVertical:10,left:30}}>
-        <CustomTabs  key={0} label={'All'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={1} label={'Biryani Varities'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={2} label={'Vegetarian'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={3} label={'Kebabs'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={4} label={'Curries and Gravies'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={5} label={'Tandoori'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={6} label={'Snacks'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={7} label={'Drinks'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={8} label={'Healthy'}  selected={selected} setSelected={setSelected}></CustomTabs>
-        <CustomTabs key={9} label={'Chutney'}  selected={selected} setSelected={setSelected}></CustomTabs>
+        <CustomChips  key={0} label={'All'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={1} label={'Biryani Varities'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={2} label={'Vegetarian'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={3} label={'Kebabs'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={4} label={'Curries and Gravies'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={5} label={'Tandoori'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={6} label={'Snacks'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={7} label={'Drinks'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={8} label={'Healthy'}  selected={selected} setSelected={setSelected}></CustomChips>
+        <CustomChips key={9} label={'Chutney'}  selected={selected} setSelected={setSelected}></CustomChips>
       </View>
       </View>
 
