@@ -8,6 +8,7 @@ import CustomChips from '../components/CustomChips';
 import DetailedCard from '../components/DetailedCard';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Card from '../components/Card';
+import CustomTabs from '../components/CustomTabs';
 
 const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
@@ -45,7 +46,7 @@ const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
 
   return (
     <SafeAreaView style={{height:'100%', backgroundColor: 'white'}}>
-      <ScrollView style={{marginBottom: 10}}>
+      <ScrollView showsVerticalScrollIndicator={true} style={{marginBottom: 10}}>
       <View style ={{marginLeft: 20}}>
       <View>
         <Text style ={styles.helloText}>Hello Tulip,</Text>
@@ -89,13 +90,19 @@ const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
 
         </View>
 
-        <View>
-          <Card CardName={''} CardImage={'../assets'}></Card>
-        </View>
+        
 
         <View style={{marginTop: 20}}>
-          <Text>Popular Category</Text>
+          <Text style={styles.popularText}>Popular Category</Text>
         </View>
+
+        <ScrollView horizontal={true} style={{flexDirection: 'row'}}>
+        <CustomTabs defaultSelected={true} label={'All'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Read'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Unread'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Read'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Unread'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+        </ScrollView>
 
         
         {/* <View style={{marginTop: 20, flexDirection: 'row'}}>
@@ -150,6 +157,11 @@ const styles = StyleSheet.create({
     color: '#FC1125',
     fontSize: 14,
     fontWeight: '400',
+  },
+  popularText: {
+    fontWeight: '500',
+    fontSize: 16,
+    color: 'black'
   }
 
   
