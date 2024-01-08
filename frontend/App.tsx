@@ -12,10 +12,12 @@ import ForgotPassPage from './pages/ForgotPassPage';
 import VerifyEmailPage from './pages/VerifyEmailPage';
 import ResetPassPage from './pages/ResetPassPage';
 import HomeScreen from './pages/HomeScreen';
+import SearchRecipes from './pages/SearchRecipes';
 import Sample from './pages/Sample';
 import SavedRecipePage from './pages/SavedRecipePage';
 import NotificationPage from './pages/NotificationPage';
 import AccountPage from './pages/AccountPage';
+import FilterPage from './pages/FilterPage';
 function App() {
 
   const Stack = createNativeStackNavigator();
@@ -38,8 +40,12 @@ function App() {
       <Stack.Screen name='NotificationPage' component={NotificationPage} />
       <Stack.Screen name='AccountPage' component={AccountPage} />
       <Stack.Screen name='SignUpPage' component={SignUpPage} />
-
       <Stack.Screen name='Sample' component={Sample} />
+      <Stack.Screen name='SearchRecipes' component={SearchRecipes} />
+      <Stack.Screen name='FilterPage' component={FilterPage} />
+      
+
+      
       </Stack.Navigator>
       
     </NavigationContainer>

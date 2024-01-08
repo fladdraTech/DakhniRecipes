@@ -5,6 +5,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import MaskedView from '@react-native-masked-view/masked-view';
 import BigButton from '../components/BigButton';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
+// import Rating from './Rating';
+
 
 
 const LandingPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {

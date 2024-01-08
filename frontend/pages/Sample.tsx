@@ -1,14 +1,33 @@
 import React from 'react';
 import { View, Image,Text, StyleSheet, Button, ScrollView } from 'react-native';
 import Card from '../components/Card';
+import RatingChip from '../components/RatingChip';
+import LinearComp from '../components/Gradient';
 
 const  Sample= () => {
     return (
-      <View style={{flexDirection:'row',justifyContent:'flex-start',flexWrap:'wrap'}}>
-        <Card CardName="Chicken" CardImage={require('../assets/sample.png')} />
-
+      <View>
+      <View>
+      <View style={{flexDirection:'row'}}>
+        
+          
+      
         
         {/* Add more Card components as needed */}
+        </View>
+
+        <View>
+      <View style={{flexDirection:'row'}}>
+        <LinearComp></LinearComp>
+        
+          
+      
+        
+        {/* Add more Card components as needed */}
+        </View>
+        </View>
+
+        </View>
         </View>
     );
   };

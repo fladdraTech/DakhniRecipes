@@ -156,9 +156,7 @@ const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
       </View>
       </ScrollView>
       <View style={{marginTop: 70}}>
-      <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0} selected={undefined} setSelected={function (value: React.SetStateAction<string | undefined>): void {
-          throw new Error('Function not implemented.');
-        } }></BottomNavigationBar>
+      <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0}></BottomNavigationBar>
       </View>
     </SafeAreaView>
   )
