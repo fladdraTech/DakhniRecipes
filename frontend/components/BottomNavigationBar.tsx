@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 interface BottomBarProps {
     onItemTapped: (index: number) => void;
     selectedIndex: number;
+    selected: string | undefined;   
+    setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
+    disabled?: boolean;
+    defaultSelected?: boolean; 
     
   }
 
-const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedIndex }) => {
+const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedIndex, selected,setSelected, disabled = false, defaultSelected = false,  }) => {
   const listofIcon = [
     'home', 
     'bookmark-outline',
@@ -16,6 +20,13 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
     'notifications-outline',
     'person',
   ];
+
+  // useEffect(() => {
+  //   // Set the first tab as selected by default when the component mounts
+  //   if (defaultSelected) {
+  //       setSelected(selectedIndex);
+  //   }
+  // }, [])
 
   
 

@@ -9,12 +9,14 @@ import DetailedCard from '../components/DetailedCard';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Card from '../components/Card';
 import CustomTabs from '../components/CustomTabs';
+import SimpleCard from '../components/SimpleCard';
 
 const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
   const [searchText, setSearchText] = useState('');
   const [tabText, setTabText] = useState<string | undefined>(undefined)
   const [chipText, setChipText] = useState<string | undefined>(undefined)
+  const [navIcons, setNavIcons] = useState<string | undefined>(undefined)
   const [selected,setSelected] = useState<string | undefined>(undefined)
 
   const handleSearch = (text: string) => {
@@ -24,10 +26,10 @@ const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
   }
     const onItemTapped = (index: number) => {
       switch (index) {
-        case 1: 
+        case 0: 
         navigation.navigate('HomeScreen');
         break;
-        case 2: 
+        case 1: 
         navigation.navigate('SavedRecipePage');
         break;
         case 3: 
@@ -96,13 +98,46 @@ const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
           <Text style={styles.popularText}>Popular Category</Text>
         </View>
 
-        <ScrollView horizontal={true} style={{flexDirection: 'row'}}>
+        <ScrollView horizontal={true} style={{flexDirection: 'row', marginTop: 20}}>
         <CustomTabs defaultSelected={true} label={'All'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
-          <CustomTabs label={'Read'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
-          <CustomTabs label={'Unread'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
-          <CustomTabs label={'Read'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
-          <CustomTabs label={'Unread'} width={100} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Kabab'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Snacks'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Drinks'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Healthy'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
+          <CustomTabs label={'Rice'} width={60} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs>
         </ScrollView>
+
+        <View style={{flexDirection: 'row', justifyContent: 'space-between', marginRight: 20, marginTop: 10}}>
+          <DetailedCard></DetailedCard>
+          <DetailedCard></DetailedCard>
+        </View>
+
+        <View style={{marginTop: 30, flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View>
+            <Text style={styles.trendingText}>New Recipe</Text>
+             {/* <Image source={require('../assets/category.png')} /> */}
+          </View>
+
+          <View style={{flexDirection: 'row' , marginRight: 20}}>
+            <Text style={styles.seeAllText}>See All</Text>
+            <Icon name='arrow-forward' size={14} style={{padding: 4}} />
+          </View>
+
+        </View>
+
+        <ScrollView horizontal={true}>
+          <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
+          <SimpleCard label={'Chicken Korma'}></SimpleCard>
+          <SimpleCard label={'Chicken Korma'}></SimpleCard>
+          <SimpleCard label={'Chicken Korma'}></SimpleCard>
+          <SimpleCard label={'Chicken Korma'}></SimpleCard>
+          <SimpleCard label={'Chicken Korma'}></SimpleCard>
+          </View>
+
+
+        </ScrollView>
+
+
 
         
         {/* <View style={{marginTop: 20, flexDirection: 'row'}}>
@@ -120,7 +155,11 @@ const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
         </View>
       </View>
       </ScrollView>
-      <BottomNavigationBar onItemTapped={() => onItemTapped} selectedIndex={0}></BottomNavigationBar>
+      <View style={{marginTop: 70}}>
+      <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0} selected={undefined} setSelected={function (value: React.SetStateAction<string | undefined>): void {
+          throw new Error('Function not implemented.');
+        } }></BottomNavigationBar>
+      </View>
     </SafeAreaView>
   )
 }
@@ -135,9 +174,9 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'left',
     marginTop: 20,
-    paddingLeft: 18,
+    paddingLeft: 0,
     paddingBottom: 10,
-    // marginLeft: 10,
+    marginLeft: 0,
 
   },
 
@@ -145,12 +184,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '400',
     color: 'black',
-    paddingLeft: 18
+    paddingLeft: 0,
+    marginLeft: 0
     
   },
 
   trendingText: {
     color: 'black',
+    fontWeight: '500',
+    fontSize: 16,
   },
 
   seeAllText: {

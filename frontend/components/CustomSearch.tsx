@@ -23,6 +23,7 @@ const CustomSearchBar: React.FC<CustomSearchBar> = ({ placeholder, onChangeText,
           marginTop: 30,
           flexDirection: 'row',
         alignItems: 'center',
+        marginLeft: 0
     
         },
         searchInput: {
