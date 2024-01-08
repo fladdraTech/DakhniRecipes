@@ -41,10 +41,10 @@ const RatingChip: React.FC<RatingChipProps> = ({Rating='4.0'}) => {
     })
 
     return(
-        <SafeAreaView style={{position:'absolute',zIndex:3,right:0}}>
+        <SafeAreaView style={{position:'absolute',zIndex:3,right:5}}>
         
         
-        <View style={{padding:10,}}>
+        <View style={{paddingTop:10}}>
         <LinearGradient colors={['rgba(252, 17, 37, 1)', 'rgba(255, 147, 0, 1)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.chip} >
         <Image source={require('../assets/star2.png')} style={styles.starImage} ></Image>
         <Text style={styles.ratingText}>{Rating}</Text>

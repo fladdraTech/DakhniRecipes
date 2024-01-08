@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text,StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Gradient from './Gradient'
+
 
 interface BottomBarProps {
     onItemTapped: () => void;
@@ -17,39 +20,68 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
     'person',
   ];
 
-  
+  const styles=StyleSheet.create({
+    navBar:{ 
+     height: 'auto',
+     backgroundColor: 'white',
+     shadowColor: 'black',
+     shadowOpacity: 0.1,
+     shadowRadius: 24,
+     elevation: 5,
+     position: 'absolute',
+     bottom:0,
+     left:0,
+     width:'100%',
+   },
+
+   addButton:{
+  position: 'absolute', 
+  backgroundColor: 'white',
+  width: 70,
+  height: 80, 
+  borderRadius: 35, 
+  bottom: 33, 
+  marginLeft:15,
+  zIndex: 10,
+  left:'50%',
+  transform: [{ translateX:-25 }] ,
+  alignItems:'center',
+  justifyContent:'center',
+  borderColor:'white',
+  borderWidth:5,      
+  shadowColor: 'black',
+  shadowOpacity: 0.1,        
+  shadowRadius: 24
+    
+  },
+
+  addIcon:{ 
+    backgroundColor:'white',
+    padding:20,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',position:'relative'
+  }
+
+
+   })
+
 
   return (
-    <View
-      style={{
-        
-        height: 'auto',
-        backgroundColor: 'white',
-        shadowColor: 'black',
-        shadowOpacity: 0.1,
-        shadowRadius: 24,
-        elevation: 5,
-        position: 'absolute',
-        bottom:0,
-        left:0,
-        width:'100%',
-      }}>
-        <View style={{
-        padding:20,flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',position:'relative'}}>
-           <TouchableOpacity style={{ position: 'absolute', backgroundColor: 'red', width: 70, height: 70, borderRadius: 35, bottom: 33, zIndex: 10,left:'50%',
-           transform: [{ translateX:-25 }] ,alignItems:'center',justifyContent:'center',
-           borderColor:'#f8f4f4',borderWidth:5,      shadowColor: 'black',
-           shadowOpacity: 0.1,        shadowRadius: 24,
-
-           }}>
-           <Icon
+   
+     <View style={styles.navBar}>
+        <View style={styles.addIcon}>
+           
+           
+           <TouchableOpacity style={styles.addButton} >
+           <LinearGradient colors={['rgba(252, 17, 37, 1)', 'rgba(255, 147, 0, 1)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={{borderRadius:50,height:60,width:60,marginBottom:7}}>
+           <Icon style={{alignSelf:'center', top:7}}
             name={'add-outline'}
-            size={30}
-            color={'#D9D9D9'}
+            size={40}
+           color={'white'}
           />
-         </TouchableOpacity>
+          </LinearGradient>
+          </TouchableOpacity>    
       {listofIcon.map((icon, index) => {
     return icon === 'empty_space' ? (<View key={index}></View>) : (
         <TouchableOpacity
@@ -58,12 +90,12 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
         style={{
           alignItems: 'center',
         }}>
-          
-          <Icon
-            name={icon}
-            size={30}
-            color={selectedIndex === index ? '#FC1125' : '#D9D9D9'}
-            />
+    
+       <Icon
+        name={icon}
+        size={30}
+        color={selectedIndex === index ? '#FC1125' : '#D9D9D9'}
+        />
           
         </TouchableOpacity>)
           }

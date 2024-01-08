@@ -8,6 +8,7 @@ import { NavigationProp, ParamListBase } from '@react-navigation/native';
 // import Rating from './Rating';
 
 
+
 const LandingPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
     const handleButtonPress = () => {
         

@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity,ScrollView } from 'react-native'
 import React, {useState} from 'react'
 import CustomSearchBar from '../components/CustomSearch'
 import FilterButton from '../components/FilterButton';
@@ -42,9 +42,12 @@ const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) 
 
 
       </View>
-      <BottomNavigationBar onItemTapped={() => onItemTapped} selectedIndex={0}></BottomNavigationBar>
-
-      <View style={{flexDirection: 'row', justifyContent: 'space-between',flexWrap:'wrap', marginRight: 20,marginLeft:20, marginTop: 20}}>
+      
+       
+      <ScrollView  horizontal={false} style={{flexDirection: 'column',maxWidth:'100%',paddingVertical:10}}>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between',flexWrap:'wrap', marginRight: 20,marginLeft:20, marginTop: 20,marginBottom:110}}>
+          <Card CardName='Chicken'></Card>
+          <Card CardName='Chicken'></Card>
           <Card CardName='Chicken'></Card>
           <Card CardName='Chicken'></Card>
           <Card CardName='Chicken'></Card>
@@ -52,6 +55,9 @@ const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) 
           <Card CardName='Chicken'></Card>
           <Card CardName='Chicken'></Card>
           </View>
+          </ScrollView >  
+
+          <BottomNavigationBar onItemTapped={() => onItemTapped} selectedIndex={0}></BottomNavigationBar>  
         
     </SafeAreaView>
   )

@@ -8,6 +8,7 @@ import CustomTabs from '../components/CustomTabs';
 import SavedBtn from '../components/SavedBtn';
 import DetailedCard from '../components/DetailedCard';
 import StepsCard from '../components/StepsCard';
+
 // import { ViewComponent } from 'react-native';
 
 const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
