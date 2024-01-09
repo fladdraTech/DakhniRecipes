@@ -1,17 +1,21 @@
-import React from 'react';
-import { View, TouchableOpacity, Text,StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import React, { useEffect } from 'react';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Gradient from './Gradient'
+import LinearGradient from 'react-native-linear-gradient';
 
 
 interface BottomBarProps {
     onItemTapped: (index: number) => void;
     selectedIndex: number;
+    // selected: string | undefined;   
+    // setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
+    disabled?: boolean;
+    defaultSelected?: boolean; 
     
   }
 
-const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedIndex }) => {
+const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedIndex, disabled = false, defaultSelected = false,  }) => {
   const listofIcon = [
     'home', 
     'bookmark-outline',
@@ -19,6 +23,20 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
     'notifications-outline',
     'person',
   ];
+
+  // useEffect(() => {
+  //   // Set the first tab as selected by default when the component mounts
+  //   if (defaultSelected) {
+  //       setSelected(selectedIndex);
+  //   }
+  // }, [])
+
+  // useEffect(() => {
+  //   // Set the first tab as selected by default when the component mounts
+  //   if (defaultSelected) {
+  //       setSelected(selectedIndex);
+  //   }
+  // }, [])
 
   const styles=StyleSheet.create({
     navBar:{ 

@@ -14,6 +14,9 @@ const SimpleCard: React.FC<SimpleCardProps> = ({label}) => {
             height: 150,
             width: 124,
             marginTop: 20,
+            marginRight: 10,
+            
+        
             // borderWidth: 1
         },
         image: {

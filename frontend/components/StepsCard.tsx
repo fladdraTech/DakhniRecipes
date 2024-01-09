@@ -1,16 +1,24 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-const StepsCard = () => {
+interface StepsCardProps {
+    txtLabel: string;
+    description: string;
+    time? : string;
+    Press?: () => void;
+  }
+
+const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time}) => {
   return (
     <View style={styles.cardContainer}>
      <View>
-        <Text style={styles.stepText}>Step 1</Text>
+        <Text style={styles.stepText}>{txtLabel}</Text>
      </View>
      <View>
         <Text style={styles.description}>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, recusandae.
+            {description}
         </Text>
+        <Text style={styles.time}>{time}</Text>
      </View>
     </View>
   )
@@ -19,7 +27,8 @@ const StepsCard = () => {
 const styles = StyleSheet.create({
     cardContainer:{
         marginTop: 20,
-        height: 90,
+        paddingBottom: 10,
+        height: 'auto',
         width: 320,
         backgroundColor: '#D9D9D9',
         borderRadius: 12,
@@ -32,6 +41,13 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         color: '#A9A9A9',
 
+    },
+    time:{
+        paddingLeft: 10,
+        color: '#A9A9A9',
+        marginTop: 10,
+        fontSize: 7,
+        fontWeight: '400',
     }
 })
 

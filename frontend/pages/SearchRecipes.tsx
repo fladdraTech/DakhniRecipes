@@ -63,7 +63,7 @@ const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) 
 
           
 
-          <BottomNavigationBar onItemTapped={() => onItemTapped} selectedIndex={0}></BottomNavigationBar>  
+          <BottomNavigationBar onItemTapped={() => onItemTapped} selectedIndex={0} />
         
     </SafeAreaView>
   )
