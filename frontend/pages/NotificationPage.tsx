@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CustomTabs from '../components/CustomTabs';
+import CustomTabs from '../components/common/CustomTabs';
 import StepsCard from '../components/StepsCard';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 

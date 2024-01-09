@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.cookingrecipe.app-mergeDebugResources-34:/values-mn/values-mn.xml",
+            "outputFile": "com.dakhnirecipe.app-mergeDebugResources-34:/values-mn/values-mn.xml",
             "map": [
                 {
                     "source": "/home/apsis/.gradle/caches/transforms-3/b3627ca143232ec2ceb6e319eb18971d/transformed/appcompat-1.6.1/res/values-mn/values-mn.xml",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/apsis/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/res/values-mn/values-mn.xml",
+                    "source": "/home/apsis/.gradle/caches/transforms-3/d10d040f6dc36d35e250d48d5ebb15bd/transformed/jetified-react-android-0.73.2-debug/res/values-mn/values-mn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

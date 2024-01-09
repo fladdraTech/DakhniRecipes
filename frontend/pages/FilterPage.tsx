@@ -1,14 +1,14 @@
 import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity,ScrollView } from 'react-native'
 import React, {useState} from 'react'
-import CustomSearchBar from '../components/CustomSearch'
-import FilterButton from '../components/FilterButton';
+import CustomSearchBar from '../components/home/CustomSearch'
+import FilterButton from '../components/home/FilterButton';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import RatingChip from '../components/RatingChip';
 import LinearGradient from 'react-native-linear-gradient';
-import BigButton from '../components/BigButton';
-import CustomTabs from '../components/CustomTabs';
-import CustomChips from '../components/CustomChips';
+import BigButton from '../components/common/BigButton';
+import CustomTabs from '../components/common/CustomTabs';
+import CustomChips from '../components/common/CustomChips';
 
 
 const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {

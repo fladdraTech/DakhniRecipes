@@ -1,13 +1,22 @@
-import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
-import InputField from '../components/InputField'
-import BigButton from '../components/BigButton'
-import { NavigationProp, ParamListBase } from '@react-navigation/native';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import React from 'react';
+import InputField from '../components/common/InputField';
+import BigButton from '../components/common/BigButton';
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
 
-
-
-
-const SignInPage = ({ navigation }: { navigation: NavigationProp<ParamListBase> }) => {
+const SignInPage = ({
+  navigation,
+}: {
+  navigation: NavigationProp<ParamListBase>;
+}) => {
   const [text, onChangeText] = React.useState('');
 
   const handleButtonPress = () => {
@@ -16,97 +25,102 @@ const SignInPage = ({ navigation }: { navigation: NavigationProp<ParamListBase> 
 
   return (
     <SafeAreaView style={styles.container}>
-        <View>
-      <Text style= {styles.helloText}>Hello,</Text>
-      <Text style= {styles.welcomeText}>Welcome back!</Text>
+      <View>
+        <Text style={styles.helloText}>Hello,</Text>
+        <Text style={styles.welcomeText}>Welcome back!</Text>
+      </View>
 
-    </View>
-    
-    <View style={{marginTop: 20}}>
-    <InputField textforInput={'Email'} placeholder={'Enter email'}></InputField>
-    <InputField textforInput={'Password'} placeholder={'Enter password'}></InputField>
-    </View>
+      <View style={{marginTop: 20}}>
+        <InputField textforInput={'Email'} placeholder={'Enter email'} />
+        <InputField textforInput={'Password'} placeholder={'Enter password'} />
+      </View>
 
-    <TouchableOpacity>
-    <View>
-      <Text style={styles.forgotText} onPress={() => navigation.navigate('ForgotPassPage')}>Forgot Password?</Text>
-    </View>
-    </TouchableOpacity>
-
-    
-        <BigButton btnLabel={'Sign In'} btnWidth={300} btnPosition={'relative'} marginTop={40} Press={() => navigation.navigate('HomeScreen')}></BigButton>
-
-        <TouchableOpacity style={styles.gButton}>
-          <Image source={require('../assets/gbutton.png')} />
-        </TouchableOpacity>
-
-    <View style={styles.bottomText}>
-      <Text>Don’t have an account? </Text>
       <TouchableOpacity>
-        <Text style={styles.signUpText} onPress={() => navigation.navigate('SignUpPage')}>Sign up</Text>
+        <View>
+          <Text
+            style={styles.forgotText}
+            onPress={() => navigation.navigate('ForgotPassPage')}>
+            Forgot Password?
+          </Text>
+        </View>
       </TouchableOpacity>
-    </View>
-    
-    
+
+      <BigButton
+        btnLabel={'Sign In'}
+        btnWidth={300}
+        btnPosition={'relative'}
+        marginTop={40}
+        Press={() => navigation.navigate('HomeScreen')}
+      />
+
+      <TouchableOpacity style={styles.gButton}>
+        <Image source={require('../assets/gbutton.png')} />
+      </TouchableOpacity>
+
+      <View style={styles.bottomText}>
+        <Text>Don’t have an account? </Text>
+        <TouchableOpacity>
+          <Text
+            style={styles.signUpText}
+            onPress={() => navigation.navigate('SignUpPage')}>
+            Sign up
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
-    
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
+  container: {
+    flex: 1,
+  },
 
-    helloText: {
-        fontSize: 30,
-        // lineHeight: 40,
-        fontWeight: '500',
-        color: 'black',
-        textAlign: 'left',
-        marginTop: 20,
-        paddingLeft: 20,
-        paddingBottom: 10,
-        marginLeft: 10,
-    
-      },
+  helloText: {
+    fontSize: 30,
+    // lineHeight: 40,
+    fontWeight: '500',
+    color: 'black',
+    textAlign: 'left',
+    marginTop: 20,
+    paddingLeft: 20,
+    paddingBottom: 10,
+    marginLeft: 10,
+  },
 
-      welcomeText: {
-        fontSize: 20,
-        fontWeight: '500',
-        color: 'black',
-        marginLeft: 10,
-        paddingLeft: 20
-        
-      },
+  welcomeText: {
+    fontSize: 20,
+    fontWeight: '500',
+    color: 'black',
+    marginLeft: 10,
+    paddingLeft: 20,
+  },
 
-      forgotText: {
-        textAlign: 'left',
-        marginLeft: 10,
-        paddingLeft: 20,
-        marginTop: 10,
-        fontWeight: '400',
-        fontSize: 14,
-        color: '#FC1125',
-        textDecorationLine: 'underline',
-      },
+  forgotText: {
+    textAlign: 'left',
+    marginLeft: 10,
+    paddingLeft: 20,
+    marginTop: 10,
+    fontWeight: '400',
+    fontSize: 14,
+    color: '#FC1125',
+    textDecorationLine: 'underline',
+  },
 
-      gButton: {
-       alignSelf: 'center',
-      },
+  gButton: {
+    alignSelf: 'center',
+  },
 
-      bottomText: {
-        flexDirection: 'row',
-        alignSelf: 'center',
-        marginTop: 10,
-      },
+  bottomText: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    marginTop: 10,
+  },
 
-      signUpText: {
-        color: '#FC1125',
-        textDecorationLine: 'underline'
-      }
-      
-})
+  signUpText: {
+    color: '#FC1125',
+    textDecorationLine: 'underline',
+  },
+});
 
-
-export default SignInPage
+export default SignInPage;

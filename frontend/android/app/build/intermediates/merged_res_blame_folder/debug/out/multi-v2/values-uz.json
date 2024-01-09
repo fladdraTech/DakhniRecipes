@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.cookingrecipe.app-mergeDebugResources-34:/values-uz/values-uz.xml",
+            "outputFile": "com.dakhnirecipe.app-mergeDebugResources-34:/values-uz/values-uz.xml",
             "map": [
-                {
-                    "source": "/home/apsis/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/res/values-uz/values-uz.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,147,215,296,365,433,507",
-                        "endColumns": "91,67,80,68,67,73,71",
-                        "endOffsets": "142,210,291,360,428,502,574"
-                    },
-                    "to": {
-                        "startLines": "41,45,46,48,62,101,102",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "3731,4060,4128,4276,5327,8424,8498",
-                        "endColumns": "91,67,80,68,67,73,71",
-                        "endOffsets": "3818,4123,4204,4340,5390,8493,8565"
-                    }
-                },
                 {
                     "source": "/home/apsis/.gradle/caches/transforms-3/b3627ca143232ec2ceb6e319eb18971d/transformed/appcompat-1.6.1/res/values-uz/values-uz.xml",
                     "from": {
@@ -35,6 +18,23 @@
                         "startOffsets": "333,438,533,633,715,815,932,1017,1095,1186,1279,1374,1468,1562,1655,1750,1845,1936,2028,2112,2222,2328,2428,2536,2642,2744,2905,8340",
                         "endColumns": "104,94,99,81,99,116,84,77,90,92,94,93,93,92,94,94,90,91,83,109,105,99,107,105,101,160,98,83",
                         "endOffsets": "433,528,628,710,810,927,1012,1090,1181,1274,1369,1463,1557,1650,1745,1840,1931,2023,2107,2217,2323,2423,2531,2637,2739,2900,2999,8419"
+                    }
+                },
+                {
+                    "source": "/home/apsis/.gradle/caches/transforms-3/d10d040f6dc36d35e250d48d5ebb15bd/transformed/jetified-react-android-0.73.2-debug/res/values-uz/values-uz.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,147,215,296,365,433,507",
+                        "endColumns": "91,67,80,68,67,73,71",
+                        "endOffsets": "142,210,291,360,428,502,574"
+                    },
+                    "to": {
+                        "startLines": "41,45,46,48,62,101,102",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "3731,4060,4128,4276,5327,8424,8498",
+                        "endColumns": "91,67,80,68,67,73,71",
+                        "endOffsets": "3818,4123,4204,4340,5390,8493,8565"
                     }
                 },
                 {

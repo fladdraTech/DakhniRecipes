@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.cookingrecipe"
+3    package="com.dakhnirecipe"
 4    android:versionCode="1"
 5    android:versionName="1.0" >
 6
@@ -16,26 +16,26 @@
 14    for React Native Apps.
 15    -->
 16    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-16-->[com.facebook.react:react-android:0.73.1] /home/apsis/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:16:5-78
-16-->[com.facebook.react:react-android:0.73.1] /home/apsis/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:16:22-75
+16-->[com.facebook.react:react-android:0.73.2] /home/apsis/.gradle/caches/transforms-3/d10d040f6dc36d35e250d48d5ebb15bd/transformed/jetified-react-android-0.73.2-debug/AndroidManifest.xml:16:5-78
+16-->[com.facebook.react:react-android:0.73.2] /home/apsis/.gradle/caches/transforms-3/d10d040f6dc36d35e250d48d5ebb15bd/transformed/jetified-react-android-0.73.2-debug/AndroidManifest.xml:16:22-75
 17    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 17-->[com.facebook.flipper:flipper:0.201.0] /home/apsis/.gradle/caches/transforms-3/9b2c28bd5719adb7e465469e2ca76c12/transformed/jetified-flipper-0.201.0/AndroidManifest.xml:14:5-76
 17-->[com.facebook.flipper:flipper:0.201.0] /home/apsis/.gradle/caches/transforms-3/9b2c28bd5719adb7e465469e2ca76c12/transformed/jetified-flipper-0.201.0/AndroidManifest.xml:14:22-73
 18
 19    <permission
 19-->[androidx.core:core:1.9.0] /home/apsis/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
-20        android:name="com.cookingrecipe.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20        android:name="com.dakhnirecipe.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
 20-->[androidx.core:core:1.9.0] /home/apsis/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
 21        android:protectionLevel="signature" />
 21-->[androidx.core:core:1.9.0] /home/apsis/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
 22
-23    <uses-permission android:name="com.cookingrecipe.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23    <uses-permission android:name="com.dakhnirecipe.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 23-->[androidx.core:core:1.9.0] /home/apsis/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
 23-->[androidx.core:core:1.9.0] /home/apsis/.gradle/caches/transforms-3/13659b94c66de92d98d7f8af61234b95/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
 24
 25    <application
 25-->/home/apsis/Dev/DakhniRecipes/frontend/android/app/src/main/AndroidManifest.xml:5:5-24:19
-26        android:name="com.cookingrecipe.MainApplication"
+26        android:name="com.dakhnirecipe.MainApplication"
 26-->/home/apsis/Dev/DakhniRecipes/frontend/android/app/src/main/AndroidManifest.xml:6:7-38
 27        android:allowBackup="false"
 27-->/home/apsis/Dev/DakhniRecipes/frontend/android/app/src/main/AndroidManifest.xml:10:7-34
@@ -55,7 +55,7 @@
 35-->/home/apsis/Dev/DakhniRecipes/frontend/android/app/src/debug/AndroidManifest.xml:6:9-44
 36        <activity
 36-->/home/apsis/Dev/DakhniRecipes/frontend/android/app/src/main/AndroidManifest.xml:12:7-23:18
-37            android:name="com.cookingrecipe.MainActivity"
+37            android:name="com.dakhnirecipe.MainActivity"
 37-->/home/apsis/Dev/DakhniRecipes/frontend/android/app/src/main/AndroidManifest.xml:13:9-37
 38            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
 38-->/home/apsis/Dev/DakhniRecipes/frontend/android/app/src/main/AndroidManifest.xml:15:9-118
@@ -79,17 +79,17 @@
 47            </intent-filter>
 48        </activity>
 49        <activity
-49-->[com.facebook.react:react-android:0.73.1] /home/apsis/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:19:9-21:40
+49-->[com.facebook.react:react-android:0.73.2] /home/apsis/.gradle/caches/transforms-3/d10d040f6dc36d35e250d48d5ebb15bd/transformed/jetified-react-android-0.73.2-debug/AndroidManifest.xml:19:9-21:40
 50            android:name="com.facebook.react.devsupport.DevSettingsActivity"
-50-->[com.facebook.react:react-android:0.73.1] /home/apsis/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:20:13-77
+50-->[com.facebook.react:react-android:0.73.2] /home/apsis/.gradle/caches/transforms-3/d10d040f6dc36d35e250d48d5ebb15bd/transformed/jetified-react-android-0.73.2-debug/AndroidManifest.xml:20:13-77
 51            android:exported="false" />
-51-->[com.facebook.react:react-android:0.73.1] /home/apsis/.gradle/caches/transforms-3/65f520f887f0d0f390437980af8cd371/transformed/jetified-react-android-0.73.1-debug/AndroidManifest.xml:21:13-37
+51-->[com.facebook.react:react-android:0.73.2] /home/apsis/.gradle/caches/transforms-3/d10d040f6dc36d35e250d48d5ebb15bd/transformed/jetified-react-android-0.73.2-debug/AndroidManifest.xml:21:13-37
 52
 53        <provider
 53-->[androidx.emoji2:emoji2:1.2.0] /home/apsis/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
 54            android:name="androidx.startup.InitializationProvider"
 54-->[androidx.emoji2:emoji2:1.2.0] /home/apsis/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
-55            android:authorities="com.cookingrecipe.androidx-startup"
+55            android:authorities="com.dakhnirecipe.androidx-startup"
 55-->[androidx.emoji2:emoji2:1.2.0] /home/apsis/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
 56            android:exported="false" >
 56-->[androidx.emoji2:emoji2:1.2.0] /home/apsis/.gradle/caches/transforms-3/faa3592d2fc203d6c74b9a5f601058a1/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37

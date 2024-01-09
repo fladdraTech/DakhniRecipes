@@ -3,7 +3,7 @@ import React from 'react'
 import LGradient  from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaskedView from '@react-native-masked-view/masked-view';
-import BigButton from '../components/BigButton';
+import BigButton from '../components/common/BigButton';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 // import Rating from './Rating';
 

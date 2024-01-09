@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, ScrollView, StyleSheet } from 'react-native'
 import React from 'react'
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import Card from '../components/Card';
+import Card from '../components/home/Card';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 
 const SavedRecipePage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {

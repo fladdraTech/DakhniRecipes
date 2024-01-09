@@ -17,7 +17,7 @@ interface BottomBarProps {
 
 const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedIndex, disabled = false, defaultSelected = false,  }) => {
   const listofIcon = [
-    'home', 
+   'home',
     'bookmark-outline',
     'empty_space',
     'notifications-outline',
@@ -108,14 +108,11 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
         style={{
           alignItems: 'center',
         }}>
-          
-          
             <Icon
             name={icon}
             size={30}
             color={selectedIndex === index ? '#FC1125' : '#D9D9D9'}
             />
-          
         </TouchableOpacity>)
           }
       )}

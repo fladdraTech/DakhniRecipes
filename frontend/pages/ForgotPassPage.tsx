@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
 import React from 'react'
-import InputField from '../components/InputField'
-import BigButton from '../components/BigButton'
+import InputField from '../components/common/InputField'
+import BigButton from '../components/common/BigButton'
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 

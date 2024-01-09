@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import React from 'react'
-import InputField from '../components/InputField'
-import BigButton from '../components/BigButton'
+import InputField from '../components/common/InputField'
+import BigButton from '../components/common/BigButton'
 
 const ResetPassPage = () => {
   return (

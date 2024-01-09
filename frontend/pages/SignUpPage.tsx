@@ -3,8 +3,8 @@ import React from 'react';
 import { View, Image,Text, TextInput, Button, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { StackNavigationProp } from '@react-navigation/stack';
-import InputField from '../components/InputField'
-import BigButton from '../components/BigButton'
+import InputField from '../components/common/InputField'
+import BigButton from '../components/common/BigButton'
 import SignInPage from './SignInPage';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 

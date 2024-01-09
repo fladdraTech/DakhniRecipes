@@ -1,10 +1,10 @@
 import { View, Text, SafeAreaView, StyleSheet, Image, TouchableOpacity,ScrollView } from 'react-native'
 import React, {useState} from 'react'
-import CustomSearchBar from '../components/CustomSearch'
-import FilterButton from '../components/FilterButton';
+import CustomSearchBar from '../components/home/CustomSearch'
+import FilterButton from '../components/home/FilterButton';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import Card from '../components/Card';
+import Card from '../components/home/Card';
 
 const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
