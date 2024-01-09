@@ -11,6 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
+JWT_SECRET=env('JWT_SECRET')
+
 DEBUG = True
 
 ALLOWED_HOSTS = [
@@ -31,8 +33,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "accounts",
     "recipes",
-    "social",
     "portal",
+    "social",
 ]
 
 MIDDLEWARE = [
@@ -43,6 +45,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "core.middlewares.AuthMiddleware",
+    "core.middlewares.ExceptionMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
