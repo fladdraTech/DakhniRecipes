@@ -14,7 +14,7 @@ import CustomChips from '../components/CustomChips';
 const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
     const [searchText, setSearchText] = useState('');
-  
+    const [tabText, setTabText] = useState<string | undefined>(undefined)
     const [selected,setSelected] = useState<string | undefined>(undefined)
   
     const handleSearch = (text: string) => {
@@ -52,13 +52,17 @@ const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
       <View style={{top:15}}>
       <Text style={styles.categoryText}>Rate</Text>
       <TouchableOpacity style={{flexDirection: 'row',paddingVertical:10,left:30}}>
-      
+      <CustomTabs label={'5'} width={50} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs> 
+      <CustomTabs label={'4'} width={50} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs> 
+      <CustomTabs label={'3'} width={50} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs> 
+      <CustomTabs label={'2'} width={50} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs> 
+      <CustomTabs label={'1'} width={50} height={32} margin={4} selected={tabText} setSelected={setTabText}></CustomTabs> 
       
       
       </TouchableOpacity>
       </View>
 
-      <View style={{top:35}}>
+      <View style={{top:25}}>
       <Text style={styles.categoryText}>Category</Text>
       <View style={{flexDirection: 'row',flexWrap:'wrap',maxWidth:'100%',paddingVertical:10,left:30}}>
         <CustomChips  key={0} label={'All'}  selected={selected} setSelected={setSelected}></CustomChips>
@@ -74,7 +78,7 @@ const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
       </View>
       </View>
 
-      <BigButton  btnLabel={'Filter'} btnWidth={200} btnPosition={'relative'} marginTop={60} Press={() => navigation.navigate('HomeScreen')}></BigButton>
+      <BigButton  btnLabel={'Filter'} btnWidth={200} btnPosition={'relative'} marginTop={120} Press={() => navigation.navigate('HomeScreen')}></BigButton>
 
     </SafeAreaView>
 
@@ -103,10 +107,6 @@ const styles = StyleSheet.create({
     left:30
  },
 
- 
-  
-
- 
 })
 
 

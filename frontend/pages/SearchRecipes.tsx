@@ -5,6 +5,8 @@ import FilterButton from '../components/FilterButton';
 import BottomNavigationBar from '../components/BottomNavigationBar';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import Card from '../components/Card';
+import BigCardNew from '../components/BigCardNew';
+
 
 const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
@@ -55,7 +57,11 @@ const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) 
           <Card CardName='Chicken'></Card>
           <Card CardName='Chicken'></Card>
           </View>
-          </ScrollView >  
+          </ScrollView > 
+   
+        
+
+          
 
           <BottomNavigationBar onItemTapped={() => onItemTapped} selectedIndex={0}></BottomNavigationBar>  
         

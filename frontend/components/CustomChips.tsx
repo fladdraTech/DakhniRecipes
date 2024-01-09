@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
     paddingLeft: 8,
     paddingRight: 8,
-    borderWidth:1
+    borderWidth:1,
+    marginTop:5
   },
   label: {
     fontWeight: '300',

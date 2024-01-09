@@ -3,6 +3,7 @@ import React from 'react'
 import InputField from '../components/InputField'
 import BigButton from '../components/BigButton'
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import BigCardNew from '../components/BigCardNew';
 
 
 

@@ -11,8 +11,12 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
+// @react-native-community/blur
+import com.reactnativecommunity.blurview.BlurViewPackage;
 // @react-native-masked-view/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// react-native-fast-image
+import com.dylanvann.fastimage.FastImageViewPackage;
 // react-native-linear-gradient
 import com.BV.LinearGradient.LinearGradientPackage;
 // react-native-safe-area-context
@@ -66,7 +70,9 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new BlurViewPackage(),
       new RNCMaskedViewPackage(),
+      new FastImageViewPackage(),
       new LinearGradientPackage(),
       new SafeAreaContextPackage(),
       new RNScreensPackage(),

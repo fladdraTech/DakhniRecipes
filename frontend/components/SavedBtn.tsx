@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         height: 35,
         width: 35,
+        zIndex:100
+        
     }
 })
 

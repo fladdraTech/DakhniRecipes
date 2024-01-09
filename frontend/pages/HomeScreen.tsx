@@ -8,6 +8,7 @@ import CustomChips from '../components/CustomChips';
 import DetailedCard from '../components/DetailedCard';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Card from '../components/Card';
+import FilterPage from './FilterPage';
 
 const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
 
@@ -57,7 +58,7 @@ const HomeScreen = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
 
         <CustomSearchBar value={searchText} placeholder={'Search'} onChangeText={() => handleSearch} barWidth={'70%'}></CustomSearchBar>
 
-        <FilterButton btnWidth={40}></FilterButton>
+        <FilterButton btnWidth={40} Press={() => navigation.navigate('FilterPage')}></FilterButton>
         </View>
 
         <ScrollView  horizontal={true} style={{flexDirection: 'row',maxWidth:'100%',paddingVertical:10}}>
