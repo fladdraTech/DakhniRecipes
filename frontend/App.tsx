@@ -14,6 +14,7 @@ import SavedRecipePage from './pages/SavedRecipePage';
 import NotificationPage from './pages/NotificationPage';
 import AccountPage from './pages/AccountPage';
 import FilterPage from './pages/FilterPage';
+import RecipeDescription from './pages/RecipeDescription';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import { Text } from 'react-native';
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ function App() {
           <Stack.Screen name="Sample" component={Sample} />
           <Stack.Screen name="SearchRecipes" component={SearchRecipes} />
           <Stack.Screen name="FilterPage" component={FilterPage} />
+          <Stack.Screen name="RecipeDescription" component={RecipeDescription} />
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>

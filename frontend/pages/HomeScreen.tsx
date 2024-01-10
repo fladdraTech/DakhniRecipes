@@ -21,6 +21,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import CustomTabs from '../components/common/CustomTabs';
 import SimpleCard from '../components/home/SimpleCard';
 import { useGetAll } from '../hooks';
+import BigCard from '../components/common/BigCard'
+
 
 const HomeScreen = ({
   navigation,
@@ -81,7 +83,7 @@ const HomeScreen = ({
                 onChangeText={() => handleSearch}
                 barWidth={'70%'}></CustomSearchBar>
 
-              <FilterButton btnWidth={40}></FilterButton>
+              <FilterButton btnWidth={40} Press={() => navigation.navigate('FilterPage')}></FilterButton>
             </View>
 
             <ScrollView
@@ -151,6 +153,14 @@ const HomeScreen = ({
                 <Icon name="arrow-forward" size={14} style={{padding: 4}} />
               </View>
             </View>
+
+            <View>
+        <ScrollView horizontal={true} style={{flexDirection: 'row', marginTop: 20}}>
+             <BigCard BigCardName='Chicken Platter'></BigCard>
+             <BigCard BigCardName='Chicken Platter'></BigCard>
+             <BigCard BigCardName='Chicken Platter'></BigCard>
+             </ScrollView>
+        </View>
 
             <View style={{marginTop: 20}}>
               <Text style={styles.popularText}>Popular Category</Text>
