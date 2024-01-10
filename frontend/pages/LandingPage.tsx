@@ -3,24 +3,10 @@ import React from 'react'
 import LGradient  from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/Ionicons';
 import MaskedView from '@react-native-masked-view/masked-view';
-import BigButton from '../components/BigButton';
+import BigButton from '../components/common/BigButton';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
+// import Rating from './Rating';
 
-
-
-  
-const GradientText = (props:any) => {
-    return (
-      <MaskedView maskElement={<Text {...props} />}>
-        <LGradient
-          colors={['#FF5F6D', '#FFC371']}
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}>
-          <Text {...props} style={[props.style, {opacity: 0}]} />
-        </LGradient>
-      </MaskedView>
-    );
-  };
 
 
 const LandingPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
@@ -38,7 +24,8 @@ const LandingPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>
            
             <Text style={styles.imageText}>
               <Text>Eat </Text>
-              <GradientText style={styles.gradientText}>better</GradientText>
+              
+              <Text style={{color: '#FC1125'}}>Better</Text>
             </Text>
             <Text style={styles.imageText2}>every day!</Text>
           </View>
