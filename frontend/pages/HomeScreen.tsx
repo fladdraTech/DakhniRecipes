@@ -56,10 +56,9 @@ const HomeScreen = ({
   };
 
 
-  const { data } = useGetAll({
-    key: `/setting/standard-response`,
-  });
-  console.log(data);
+  // const { data } = useGetAll({
+  //   key: `/setting/standard-response`,
+  // });
   return (
     <SafeAreaView style={{height: '100%', backgroundColor: 'white'}}>
       <ScrollView
