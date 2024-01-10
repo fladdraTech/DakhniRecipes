@@ -1,5 +1,6 @@
 from django.db import models
 from portal.base import BaseModel
+from portal.models import Configuration
 
 
 class Recipe(BaseModel):
@@ -54,8 +55,23 @@ class TrendingRecipe(BaseModel):
         Recipe, on_delete=models.CASCADE, related_name="trending_recipes"
     )
 
+    def save(self, *args, **kwargs):
+        limit = Configuration.objects.all().first().trending_recipe_limit
+        total_objs = TrendingRecipe.objects.all()
+        if total_objs.count() == limit:
+            total_objs.last().delete()
+        super().save(*args, **kwargs)
+
 
 class PopularRecipe(BaseModel):
     recipe = models.ForeignKey(
         Recipe, on_delete=models.CASCADE, related_name="popular_recipes"
     )
+
+    def save(self, *args, **kwargs):
+        limit = Configuration.objects.all().first().popular_recipe_limit
+        total_objs = PopularRecipe.objects.all()
+        print(total_objs.count(), limit, type(limit))
+        if total_objs.count() == limit:
+            total_objs.last().delete()
+        super().save(*args, **kwargs)

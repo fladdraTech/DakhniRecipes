@@ -26,3 +26,12 @@ class UserUpdateSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
+
+
+class SingleUserGetSerializer(ModelSerializer):
+    from recipes.serializers import GetAllRecipeSerializer
+    recipes = GetAllRecipeSerializer(read_only=True, many=True)
+
+    class Meta:
+        model = User
+        fields = "__all__"

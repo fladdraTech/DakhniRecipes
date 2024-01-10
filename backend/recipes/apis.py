@@ -4,14 +4,12 @@ from django.db import transaction
 from portal.base import BaseAPIView
 from portal.constants import GET, GETALL, POST, DELETE
 from .models import Recipe, Ingredient, IngredientList, Procedure
-from .serializers import (
-    RecipeSerializer,
-    GetRecipeSerializer,
-)
+from .serializers import RecipeSerializer, GetRecipeSerializer, GetAllRecipeSerializer
 
 
 class RecipeView(BaseAPIView):
     model = Recipe
+    getall_serializer = GetAllRecipeSerializer
     serializer_class = GetRecipeSerializer
     post_serializer = RecipeSerializer
     related_models = {}
@@ -58,8 +56,6 @@ class RecipeView(BaseAPIView):
         recipe_serializer = RecipeSerializer(obj, data=request.data, partial=True)
         if recipe_serializer.is_valid():
             recipe_serializer.save()
-            return Response(
-                data={"msg": "Saved Successfully"}, status=200
-            )
+            return Response(data={"msg": "Saved Successfully"}, status=200)
         else:
             return Response(data=recipe_serializer.errors, status=400)

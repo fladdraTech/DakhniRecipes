@@ -41,8 +41,8 @@ class BaseAPIView(APIView):
         try:
             return self.lookup_field
         except:
-            return 'id'
-    
+            return "id"
+
     def get_serializer_class(self):
         return self.serializer_class
 
@@ -67,6 +67,12 @@ class BaseAPIView(APIView):
         except:
             return self.get_serializer_class()
 
+    def get_getall_serializer(self):
+        try:
+            return self.getall_serializer
+        except:
+            return self.get_serializer_class()
+
     def get_put_serializer(self):
         try:
             return self.put_serializer
@@ -79,16 +85,20 @@ class BaseAPIView(APIView):
     def check_if_method_allowed(self, method):
         if method not in self.allowed_methods:
             if method is GETALL:
-                return Response({'msg': "Not Found"}, status=404)
-            return Response({'msg': "Method not allowed"}, status=405)
-    
+                return Response({"msg": "Not Found"}, status=404)
+            return Response({"msg": "Method not allowed"}, status=405)
+
     def search_query_filter(self, search_query, related_fields=None):
         if search_query:
             fields = [f.name for f in self.model._meta.fields if not f.is_relation]
             if self.related_models:
                 for field_name, model_class in self.related_models.items():
-                    related_fields = [f.name for f in model_class._meta.fields if not f.is_relation]
-                    fields.extend([f"{field_name}__{field}" for field in related_fields])
+                    related_fields = [
+                        f.name for f in model_class._meta.fields if not f.is_relation
+                    ]
+                    fields.extend(
+                        [f"{field_name}__{field}" for field in related_fields]
+                    )
             search_query_filter = Q()
             for field in fields:
                 if field not in self.search_ignore_fields:
@@ -99,34 +109,35 @@ class BaseAPIView(APIView):
 
     def get(self, request, id=None, *args, **kwargs):
         if id == "list":
+            serializer = self.get_getall_serializer()
             if not GETALL in self.allowed_methods:
-                return Response({'msg': "Not Found"}, status=404)
+                return Response({"msg": "Not Found"}, status=404)
             print("get all")
             pg = request.GET.get("pg") or 0
             limit = request.GET.get("limit") or 20
-            search = request.GET.get('q', '')
+            search = request.GET.get("q", "")
             queryset = self.get_queryset()
             if search:
-                queryset = queryset.filter(self.search_query_filter(search_query=search))
+                queryset = queryset.filter(
+                    self.search_query_filter(search_query=search)
+                )
             for param in self.request.query_params:
-                if param not in ['pg', 'q', 'limit']:
+                if param not in ["pg", "q", "limit"]:
                     param_value = self.request.query_params[param]
-                    if self.request.query_params[param] == 'true':
+                    if self.request.query_params[param] == "true":
                         param_value = True
-                    if self.request.query_params[param] == 'false':
+                    if self.request.query_params[param] == "false":
                         param_value = False
                     queryset = queryset.filter(**{param: param_value})
             count = queryset.count()
-            objs = queryset[
-                int(pg) * int(limit) : (int(pg) + 1) * int(limit)
-            ]
+            objs = queryset[int(pg) * int(limit) : (int(pg) + 1) * int(limit)]
             return Response(
-                data={"rows": self.serializer(objs, many=True).data, "count": count},
+                data={"rows": serializer(objs, many=True).data, "count": count},
                 status=200,
             )
         else:
             if not GET in self.allowed_methods:
-                return Response({'msg': "Method not allowed"}, status=405)
+                return Response({"msg": "Method not allowed"}, status=405)
             print("get by id")
             try:
                 return Response(
@@ -144,21 +155,23 @@ class BaseAPIView(APIView):
 
     def post(self, request, *args, **kwargs):
         if not POST in self.allowed_methods:
-            return Response({'msg': "Method not allowed"}, status=405)
+            return Response({"msg": "Method not allowed"}, status=405)
         print("in post")
-        
+
         serializer = self.get_post_serializer()
         serializer = serializer(data=request.data)
         if serializer.is_valid():
             obj = serializer.save()
-            return Response(data={'msg': 'Saved Successfully', 'id': obj.id}, status=201)
+            return Response(
+                data={"msg": "Saved Successfully", "id": obj.id}, status=201
+            )
         else:
             return Response(data=serializer.errors, status=400)
 
     def put(self, request, id=None, *args, **kwargs):
         print("In put")
         if not PUT in self.allowed_methods:
-            return Response({'msg': "Method not allowed"}, status=405)
+            return Response({"msg": "Method not allowed"}, status=405)
         print("in put")
         filter = {self.lookup: id}
         try:
@@ -175,12 +188,12 @@ class BaseAPIView(APIView):
         serializer = serializer(obj, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            return Response(data={'msg': 'Saved Successfully'}, status=202)
+            return Response(data={"msg": "Saved Successfully"}, status=202)
         return Response(data=serializer.errors, status=400)
 
     def delete(self, request, id=None, *args, **kwargs):
         if not DELETE in self.allowed_methods:
-            return Response({'msg': "Method not allowed"}, status=405)
+            return Response({"msg": "Method not allowed"}, status=405)
         print("in delete")
         filter = {self.lookup: id}
         try:
@@ -202,5 +215,3 @@ class BaseAPIView(APIView):
                 },
                 status=400,
             )
-
-

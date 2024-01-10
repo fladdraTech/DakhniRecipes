@@ -5,7 +5,7 @@ import jwt
 
 from portal.base import BaseAPIView
 from .models import User
-from .serializers import UserGetSerializer, UserSerializer, UserUpdateSerializer
+from .serializers import UserGetSerializer, UserSerializer, UserUpdateSerializer, SingleUserGetSerializer
 
 
 class PasswordLoginView(APIView):
@@ -29,7 +29,8 @@ class UserView(BaseAPIView):
     model = User
     post_serializer = UserSerializer
     put_serializer = UserUpdateSerializer
-    serializer_class = UserGetSerializer
+    serializer_class = SingleUserGetSerializer
+    getall_serializer = UserGetSerializer
     related_models = {}
     search_ignore_fields = []
     order = "registered_on"
