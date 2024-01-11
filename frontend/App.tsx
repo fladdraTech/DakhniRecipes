@@ -28,7 +28,7 @@ function App() {
           screenOptions={{
             headerShown: false,
           }}>
-          <Stack.Screen name="LandingPage" component={LandingPage}  />
+          <Stack.Screen name="LandingPage" component={LandingPage}/>
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="SignInPage" component={SignInPage} />
           <Stack.Screen name="ForgotPassPage" component={ForgotPassPage} />
@@ -38,7 +38,7 @@ function App() {
           <Stack.Screen name="NotificationPage" component={NotificationPage} />
           <Stack.Screen name="AccountPage" component={AccountPage} />
           <Stack.Screen name="SignUpPage" component={SignUpPage} />
-          <Stack.Screen name="Sample" component={Sample} />
+          <Stack.Screen name="Sample" component={Sample}/>
           <Stack.Screen name="SearchRecipes" component={SearchRecipes} />
           <Stack.Screen name="FilterPage" component={FilterPage} />
         </Stack.Navigator>

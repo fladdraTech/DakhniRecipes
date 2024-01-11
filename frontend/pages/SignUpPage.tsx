@@ -27,9 +27,10 @@ type RegistrationScreenProps = {
 const RegistrationScreen: React.FC<RegistrationScreenProps> = ({ navigation }: { navigation: NavigationProp<ParamListBase> }) => {
   const { control, handleSubmit, formState: { errors }, getValues } = useForm();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = () => {
     // Perform registration logic here
-    console.log(data);
+    
+    console.log("<========submittt",getValues());
     // Redirect to another screen if needed
     // navigation.navigate('Home');
   };
@@ -44,9 +45,10 @@ const RegistrationScreen: React.FC<RegistrationScreenProps> = ({ navigation }: {
       
       <Controller
         control={control}
-        render={({ field }) => (
-            <InputField textforInput={'Name'} placeholder={'Enter Name'}></InputField>
-            
+        render={({ field: { onChange, onBlur, value }  }) => (
+            <InputField      onBlur={onBlur}
+            onChangeText={onChange}
+            value={value} textforInput={'Name'} placeholder={'Enter Name'}></InputField>
         )}
         name="name"
         rules={{ required: 'Name is required' }}
@@ -87,7 +89,7 @@ const RegistrationScreen: React.FC<RegistrationScreenProps> = ({ navigation }: {
       <Text style={{ color: 'red' , marginBottom:40,marginLeft:35,marginTop:3}}><>{errors.confirmPassword?.message}</></Text>
       
       {/* Registration Button */}
-      <BigButton btnLabel={'Sign Up'} btnWidth={300} btnPosition={'relative'}></BigButton>
+      <BigButton Press={()=>onSubmit()} btnLabel={'Sign Up'} btnWidth={300} btnPosition={'relative'}></BigButton>
      </View>
 
      <TouchableOpacity style={styles.gButton}>
