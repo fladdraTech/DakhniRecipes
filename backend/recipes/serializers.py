@@ -10,6 +10,7 @@ from .models import (
 )
 from portal.serializers import CategoryLovSerializer
 from social.models import Rate
+from accounts.serializers import UserGetSerializer
 
 
 class RecipeSerializer(ModelSerializer):
@@ -51,7 +52,6 @@ class ProcedureSerializer(ModelSerializer):
 
 
 class GetRecipeSerializer(ModelSerializer):
-    from accounts.serializers import UserGetSerializer
 
     chef = UserGetSerializer(read_only=True)
     ingredients = GetIngredientListSerializer(read_only=True, many=True)
