@@ -1,8 +1,7 @@
 from django.urls import path
-from .lovapis import LovApiView
-from .apis import PopularCategoriesView
+from .apis import PopularCategoriesView, CategoryView
 
 urlpatterns = [
-    path("drop-down/<str:key>/", LovApiView.as_view()),
+    path("category/", CategoryView.as_view()),
     path("popular-categories/", PopularCategoriesView.as_view()),
 ]

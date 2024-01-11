@@ -56,7 +56,7 @@ class TrendingRecipe(BaseModel):
     )
 
     def save(self, *args, **kwargs):
-        limit = Configuration.objects.all().first().trending_recipe_limit
+        limit = Configuration.objects.first().trending_recipe_limit
         total_objs = TrendingRecipe.objects.all()
         if total_objs.count() == limit:
             total_objs.last().delete()
@@ -69,7 +69,7 @@ class PopularRecipe(BaseModel):
     )
 
     def save(self, *args, **kwargs):
-        limit = Configuration.objects.all().first().popular_recipe_limit
+        limit = Configuration.objects.first().popular_recipe_limit
         total_objs = PopularRecipe.objects.all()
         # print(total_objs.count(), limit, type(limit))
         if total_objs.count() == limit:

@@ -5,6 +5,16 @@ from .models import Category
 from .serializers import CategoryLovSerializer
 
 
+class CategoryView(APIView):
+    def get(self, request):
+        return Response(
+            data={
+                "rows": CategoryLovSerializer(Category.objects.all(), many=True).data
+            },
+            status=200,
+        )
+
+
 class PopularCategoriesView(APIView):
     def get(self, request):
         category_ids = PopularRecipe.objects.all().values_list(
