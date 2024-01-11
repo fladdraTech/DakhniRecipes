@@ -1,16 +1,31 @@
 import React, { useEffect,useState } from 'react';
-import {View,Text} from "react-native"
+import {View,Text,ScrollView} from "react-native"
 import BigCard from '../components/common/BigCard'
 import StarCustomTab from "../components/common/StarCustomTab";
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
+import BigButton from '../components/common/BigButton';
+import CustomTabs from '../components/common/CustomTabs';
+import IngredientsList from '../components/IngredientsList';
 
 const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>{
     const [searchText, setSearchText] = useState('');
     const [tabText, setTabText] = useState<string | undefined>(undefined);
     const [chipText, setChipText] = useState<string | undefined>(undefined);
+    const [selectedTab, setSelectedTab] = useState(0);
+    const [longTabText, setLongTabText] = useState<string | undefined>(undefined);
+
+
+
+  let list;
+  if (longTabText === 'Ingredients' ) {
+    list = <IngredientsList></IngredientsList>
+  } else {
+    list = <Text style={{color:'black'}}> Procedure </Text> ;
+  }
+
     return (
-      <View>
-      <View style={{flexDirection:'row',alignSelf:'center'}}>
+      <ScrollView>
+      <View style={{flexDirection:'row',alignSelf:'center',marginBottom:20}}>
         
           
       <BigCard BigCardName='Biryani' BigCardWidth={360} Review='13k Reviews'></BigCard>
@@ -28,8 +43,25 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
         <StarCustomTab tabBorderColor='gray' label={'Reviews'}  width={'auto'} height={32} margin={3} selected={tabText} setSelected={setTabText} image="share"></StarCustomTab>
         {/* </View> */}
         </View>
+        
+        
 
+        
+
+
+        <View style={{marginTop: 30, flexDirection: 'row',alignSelf:'center'}}>
+        
+          <CustomTabs defaultSelected={true} label={'Ingredients'} width={'40%'} height={42} margin={4} selected={longTabText} setSelected={setLongTabText}></CustomTabs>
+          
+          
+          <CustomTabs label={'Procedure'} width={'40%'} height={42} margin={4} selected={longTabText} setSelected={setLongTabText}></CustomTabs>
         </View>
+
+         <View>
+        {list}
+        </View>
+
+        </ScrollView>
     );
   };
   
