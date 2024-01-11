@@ -2,9 +2,25 @@ from rest_framework.response import Response
 from django.db import transaction
 
 from portal.base import BaseAPIView
+from portal.models import Category
 from portal.constants import GET, GETALL, POST, DELETE
-from .models import Recipe, Ingredient, IngredientList, Procedure
-from .serializers import RecipeSerializer, GetRecipeSerializer, GetAllRecipeSerializer
+from .models import (
+    Recipe,
+    Ingredient,
+    IngredientList,
+    Procedure,
+    TrendingRecipe,
+    PopularRecipe,
+)
+from .serializers import (
+    RecipeSerializer,
+    GetRecipeSerializer,
+    GetAllRecipeSerializer,
+    TrendingRecipeSerializer,
+    PopularRecipeSerializer,
+    GetTrendingRecipeSerializer,
+    GetPopularRecipeSerializer,
+)
 
 
 class RecipeView(BaseAPIView):
@@ -12,7 +28,7 @@ class RecipeView(BaseAPIView):
     getall_serializer = GetAllRecipeSerializer
     serializer_class = GetRecipeSerializer
     post_serializer = RecipeSerializer
-    related_models = {}
+    related_models = {"category": Category}
     allowed_methods = [GET, GETALL, POST, DELETE]
 
     def post(self, request, *args, **kwargs):
@@ -59,3 +75,21 @@ class RecipeView(BaseAPIView):
             return Response(data={"msg": "Saved Successfully"}, status=200)
         else:
             return Response(data=recipe_serializer.errors, status=400)
+
+
+class PopularRecipeView(BaseAPIView):
+    model = PopularRecipe
+    getall_serializer = GetPopularRecipeSerializer
+    serializer_class = PopularRecipeSerializer
+    related_models = {"recipe__category": Category}
+    allowed_methods = [GETALL]
+    query_set = PopularRecipe.objects.all().select_related("recipe")
+
+
+class TrendingRecipeView(BaseAPIView):
+    model = TrendingRecipe
+    getall_serializer = GetTrendingRecipeSerializer
+    serializer_class = TrendingRecipeSerializer
+    related_models = {}
+    allowed_methods = [GETALL]
+    query_set = TrendingRecipe.objects.all().select_related("recipe")

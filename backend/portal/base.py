@@ -121,14 +121,14 @@ class BaseAPIView(APIView):
                 queryset = queryset.filter(
                     self.search_query_filter(search_query=search)
                 )
-            for param in self.request.query_params:
-                if param not in ["pg", "q", "limit"]:
-                    param_value = self.request.query_params[param]
-                    if self.request.query_params[param] == "true":
-                        param_value = True
-                    if self.request.query_params[param] == "false":
-                        param_value = False
-                    queryset = queryset.filter(**{param: param_value})
+            # for param in self.request.query_params:
+            #     if param not in ["pg", "q", "limit"]:
+            #         param_value = self.request.query_params[param]
+            #         if self.request.query_params[param] == "true":
+            #             param_value = True
+            #         if self.request.query_params[param] == "false":
+            #             param_value = False
+            #         queryset = queryset.filter(**{param: param_value})
             count = queryset.count()
             objs = queryset[int(pg) * int(limit) : (int(pg) + 1) * int(limit)]
             return Response(

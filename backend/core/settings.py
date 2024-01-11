@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
-JWT_SECRET=env('JWT_SECRET')
+JWT_SECRET = env("JWT_SECRET")
 
 DEBUG = True
 
@@ -23,6 +23,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    "django_crontab",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -125,7 +126,26 @@ STATIC_URL = "/api/static/"
 # STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR.joinpath("static")
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+CORS_ALLOW_HEADERS = [
+    "*",
+]
+
+# Ye chalra tha
+# CORS_ORIGIN_ALLOW_ALL = True
+# # CORS_ALLOW_HEADERS = ["*",]
+# CORS_ORIGINS_WHITELIST = [
+#     "http://192.168.1.107:8081",
+# ]
+# CSRF_TRUSTED_ORIGINS = [
+#     "http://192.168.1.107:8081",
+# ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CRONJOBS = [
+    ("0 0 * * *", "recipes.cronjob.get_popular_recipes"),  # Run at midnight
+    ("0 12 * * *", "recipes.cronjob.get_popular_recipes"),  # Run at noon
+    ("0 0 * * *", "recipes.cronjob.get_trending_recipes"),  # Run at midnight
+    ("0 12 * * *", "recipes.cronjob.get_trending_recipes"),  # Run at noon
+]

@@ -1,5 +1,5 @@
 from rest_framework.response import Response
-
+from django.db.models import Q
 from portal.base import BaseAPIView
 from portal.constants import GETALL, POST
 from .models import SavedRecipe, RecentlySearched, Rate, Review
@@ -36,8 +36,10 @@ class ReviewRecipeView(BaseAPIView):
 
     def get(self, request, id=None, *args, **kwargs):
         recipeID = request.query_params.get("recipe")
+        filters = Q()
         if recipeID and recipeID != "" and recipeID != "undefined":
-            self.query_set = Review.objects.filter(recipe=recipeID)
+            filters &= Q(recipe=recipeID)
+        self.query_set = Review.objects.filter(filters).select_related("user")
         return super().get(request, id, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -53,7 +55,9 @@ class RecentlSearchedRecipeView(BaseAPIView):
     related_models = {"recipe": Recipe}
 
     def get(self, request, id=None, *args, **kwargs):
-        self.query_set = RecentlySearched.objects.filter(user=request.thisUser.id)
+        self.query_set = RecentlySearched.objects.filter(
+            user=request.thisUser.id
+        ).select_related("recipe")
         return super().get(request, id, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -76,7 +80,9 @@ class SavedRecipeView(BaseAPIView):
     related_models = {"recipe": Recipe}
 
     def get(self, request, id=None, *args, **kwargs):
-        self.query_set = SavedRecipe.objects.filter(user=request.thisUser.id)
+        self.query_set = SavedRecipe.objects.filter(
+            user=request.thisUser.id
+        ).select_related("recipe")
         return super().get(request, id, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):

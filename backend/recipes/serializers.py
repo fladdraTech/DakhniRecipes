@@ -1,6 +1,13 @@
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from django.db.models import Avg
-from .models import Recipe, Ingredient, IngredientList, Procedure
+from .models import (
+    Recipe,
+    Ingredient,
+    IngredientList,
+    Procedure,
+    TrendingRecipe,
+    PopularRecipe,
+)
 from portal.serializers import CategoryLovSerializer
 from social.models import Rate
 
@@ -45,6 +52,7 @@ class ProcedureSerializer(ModelSerializer):
 
 class GetRecipeSerializer(ModelSerializer):
     from accounts.serializers import UserGetSerializer
+
     chef = UserGetSerializer(read_only=True)
     ingredients = GetIngredientListSerializer(read_only=True, many=True)
     procedure = ProcedureSerializer(read_only=True, many=True)
@@ -64,4 +72,32 @@ class GetAllRecipeSerializer(ModelSerializer):
 
     class Meta:
         model = Recipe
+        exclude = ["category", "chef", "created_on", "updated_on", "is_deleted"]
+
+
+class TrendingRecipeSerializer(ModelSerializer):
+    class Meta:
+        model = TrendingRecipe
         fields = "__all__"
+
+
+class GetTrendingRecipeSerializer(ModelSerializer):
+    recipe = GetAllRecipeSerializer(read_only=True)
+
+    class Meta:
+        model = TrendingRecipe
+        fields = ["id", "recipe"]
+
+
+class PopularRecipeSerializer(ModelSerializer):
+    class Meta:
+        model = PopularRecipe
+        fields = "__all__"
+
+
+class GetPopularRecipeSerializer(ModelSerializer):
+    recipe = GetAllRecipeSerializer(read_only=True)
+
+    class Meta:
+        model = PopularRecipe
+        fields = ["id", "recipe"]

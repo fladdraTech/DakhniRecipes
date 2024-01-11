@@ -14,6 +14,7 @@ class AuthMiddleware:
         if (
             request.path.startswith("/admin")
             or request.path.startswith("/api/accounts/login")
+            or request.path.startswith("/api/accounts/user/create")
             or request.path.startswith("/static/")
             or request.path.startswith("/media/")
             or request.path.startswith("/api/media/")
