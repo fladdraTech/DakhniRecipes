@@ -11,8 +11,10 @@ class PopularCategoriesView(APIView):
             "recipe__category__id", flat=True
         )
         return Response(
-            data=CategoryLovSerializer(
-                Category.objects.filter(id__in=category_ids), many=True
-            ).data,
+            data={
+                "rows": CategoryLovSerializer(
+                    Category.objects.filter(id__in=category_ids), many=True
+                ).data
+            },
             status=200,
         )

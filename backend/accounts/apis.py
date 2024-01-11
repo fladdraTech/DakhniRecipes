@@ -5,7 +5,12 @@ import jwt
 
 from portal.base import BaseAPIView
 from .models import User
-from .serializers import UserGetSerializer, UserSerializer, UserUpdateSerializer, SingleUserGetSerializer
+from .serializers import (
+    UserGetSerializer,
+    UserSerializer,
+    UserUpdateSerializer,
+    SingleUserGetSerializer,
+)
 
 
 class PasswordLoginView(APIView):
@@ -16,9 +21,9 @@ class PasswordLoginView(APIView):
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:
-            return Response(data="Invalid Credentials", status=403)
+            return Response("Invalid Email", status=418)
         if not user.check_password(password):
-            return Response(data="Invalid Credentials", status=403)
+            return Response("Invalid Password", status=418)
         token = jwt.encode({"id": str(user.id)}, settings.JWT_SECRET, algorithm="HS256")
         data["token"] = token
         data["user"] = UserGetSerializer(user).data

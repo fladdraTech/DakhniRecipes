@@ -25,8 +25,10 @@ class LovApiView(APIView):
             return Response(data={"msg": "Not Found"}, status=404)
         else:
             return Response(
-                data=lov_options[key]["serializer"](
-                    lov_options[key]["query_set"], many=True
-                ).data,
+                data={
+                    "rows": lov_options[key]["serializer"](
+                        lov_options[key]["query_set"], many=True
+                    ).data
+                },
                 status=200,
             )
