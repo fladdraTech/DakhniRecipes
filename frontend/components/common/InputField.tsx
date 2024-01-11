@@ -4,17 +4,17 @@ import React from 'react'
 interface InputField {
     textforInput: string;
     placeholder: string;
+    // keyboardType: string;
     [x:string]: any;
 
     // Press?: () => void;
   }
 
 const InputField: React.FC<InputField> = ({textforInput, placeholder,...otherProps}) => {
-    const [text, onChangeText] = React.useState('')
   return (
     <View>
         <Text style={styles.inputText}>{textforInput}</Text>
-        <TextInput  {...otherProps} style= {styles.input} onChangeText={onChangeText} placeholder= {placeholder} keyboardType='email-address' />
+        <TextInput style= {styles.input} placeholder= {placeholder} {...otherProps}/>
 
         
     </View>
