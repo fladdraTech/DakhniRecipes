@@ -31,6 +31,12 @@ class RecipeView(BaseAPIView):
     related_models = {"category": Category}
     allowed_methods = [GET, GETALL, POST, DELETE]
 
+    def get(self, request, id=None, *args, **kwargs):
+        random = request.query_params.get("random")
+        if random == "true":
+            self.order = "?"
+        return super().get(request, id, *args, **kwargs)
+
     def post(self, request, *args, **kwargs):
         try:
             request.data["chef"] = request.thisUser.id
