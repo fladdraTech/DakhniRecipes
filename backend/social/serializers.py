@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from .models import SavedRecipe, RecentlySearched, Rate, Review
-from recipes.serializers import RecipeSerializer
+from recipes.serializers import GetAllRecipeSerializer
 from accounts.serializers import UserGetSerializer
 
 
@@ -31,7 +31,7 @@ class SavedRecipeSerializer(ModelSerializer):
 
 
 class GetSavedRecipeSerializer(ModelSerializer):
-    recipe = RecipeSerializer(read_only=True)
+    recipe = GetAllRecipeSerializer(read_only=True)
 
     class Meta:
         model = SavedRecipe
@@ -45,7 +45,7 @@ class RecentlySearchedSerializer(ModelSerializer):
 
 
 class GetRecentlySearchedSerializer(ModelSerializer):
-    recipe = RecipeSerializer(read_only=True)
+    recipe = GetAllRecipeSerializer(read_only=True)
 
     class Meta:
         model = RecentlySearched
