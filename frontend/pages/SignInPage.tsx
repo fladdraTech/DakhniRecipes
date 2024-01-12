@@ -37,7 +37,10 @@ const SignInPage = ({
       await AsyncStorage.setItem("userToken", response.data["token"]);
       setApiHeaders();
       ToastAndroid.show("Login Successfully", ToastAndroid.SHORT);
-      navigation.navigate("HomeScreen");
+      navigation.reset({
+        routes: [{ name: "BottomBarContainer" }],
+        index: 0,
+      });
     },
     onError: (err) => {
       console.log("formdata errors", errors);

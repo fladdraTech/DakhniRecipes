@@ -266,12 +266,12 @@ const HomeScreen = ({
           </View>
         </View>
       </ScrollView>
-      <View style={{ marginTop: 70 }}>
+{/*       <View style={{ marginTop: 70 }}>
         <BottomNavigationBar
           onItemTapped={onItemTapped}
           selectedIndex={0}
         ></BottomNavigationBar>
-      </View>
+      </View> */}
     </SafeAreaView>
   );
 };
