@@ -13,7 +13,10 @@ class AuthMiddleware:
         token = request.headers.get("x-access-token")
         if (
             request.path.startswith("/admin")
+            or request.path.startswith("/api/accounts/change-password")
             or request.path.startswith("/api/accounts/login")
+            or request.path.startswith("/api/accounts/sent-otp")
+            or request.path.startswith("/api/accounts/verify-otp")
             or request.path.startswith("/api/accounts/user/create")
             or request.path.startswith("/static/")
             or request.path.startswith("/media/")

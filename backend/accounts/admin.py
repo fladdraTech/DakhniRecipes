@@ -18,12 +18,12 @@ class MyUserAdmin(BaseUserAdmin):
     list_display = ("id", "name", "email", "is_admin")
     list_filter = ("is_admin",)
     add_fieldsets = (
-        (None, {"fields": ("email", "password1", "password2", "is_active")}),
+        (None, {"fields": ("email", "password1", "password2")}),
         ("Personal info", {"fields": ("name",)}),
         ("Permissions", {"fields": ("is_admin",)}),
     )
     fieldsets = (
-        (None, {"fields": ("email", "password", "is_active")}),
+        (None, {"fields": ("email", "password")}),
         (
             "Personal info",
             {
@@ -33,6 +33,8 @@ class MyUserAdmin(BaseUserAdmin):
                     "profession",
                     "description",
                     "profile_pic",
+                    "otp",
+                    "is_verified",
                 )
             },
         ),
