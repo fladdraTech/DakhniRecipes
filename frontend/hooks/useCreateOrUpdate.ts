@@ -1,7 +1,7 @@
 import { useMutation } from "react-query";
 import { ResponseInterface } from "../interfaces";
 import { serverAPI } from "../utils/serverAPI";
-// import { onError } from "utils";
+import errorHandler from "../utils/errorHandler";
 // import { setApiHeaders } from "utils/setApiHeaders";
 
 interface useCreateOrUpdateType<TVariables = any, TContext = unknown> {
@@ -14,6 +14,7 @@ interface useCreateOrUpdateType<TVariables = any, TContext = unknown> {
     variables: TVariables,
     context: TContext | undefined
   ) => Promise<unknown> | void;
+  onError?: (data:ResponseInterface) =>  Promise<unknown> | void
 }
 
 export function useCreateOrUpdate<T = unknown>({
@@ -21,6 +22,7 @@ export function useCreateOrUpdate<T = unknown>({
   method = "post",
   refetch,
   onSuccess,
+  onError,
 }: useCreateOrUpdateType) {
   function sendData(data: T) {
     // setApiHeaders();
@@ -33,7 +35,8 @@ export function useCreateOrUpdate<T = unknown>({
       refetch && refetch();
     },
     onError: (data: any) => {
-      // onError(data);
+      errorHandler(data);
+      onError && onError(data);
     },
   });
 }

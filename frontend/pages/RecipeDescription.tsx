@@ -18,9 +18,10 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
 
   let list;
   if (longTabText === 'Ingredients' ) {
-    list = <IngredientsList></IngredientsList>
-  } else {
     list = <Text style={{color:'black'}}> Procedure </Text> ;
+  } else {
+    list = <IngredientsList></IngredientsList>
+    
   }
 
     return (

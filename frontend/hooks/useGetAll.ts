@@ -5,6 +5,7 @@ import {
   useQuery,
   UseQueryResult,
 } from 'react-query';
+import { setApiHeaders } from '../utils/setApiHeaders';
 // import { setApiHeaders } from "utils/setApiHeaders";
 
 interface apiParams {
@@ -14,13 +15,12 @@ interface apiParams {
 function getData(
   url: string,
   params?: apiParams | boolean,
-  schemaName?: string,
 ): Promise<any> {
-  // setApiHeaders();
+  setApiHeaders(); 
 
-  if (schemaName) {
-    serverAPI.defaults.headers.common['x-tenant-name'] = schemaName;
-  }
+  console.log('SERVERRRR', serverAPI.get(url, {
+    params: params ? params : {},
+  }))
 
   return serverAPI.get(url, {
     params: params ? params : {},
@@ -57,13 +57,17 @@ export function useGetAll<TData = any, TError = any>(
     ? [options.key, JSON.stringify(options?.params)]
     : options?.key;
 
-  return useQuery(
+
+  const bbb = useQuery(
     key,
-    () => getData(options.key, options?.params, options.schemaName),
+    () => getData(options.key, options?.params),
     {
       retry: false,
-      select: (data: ResponseInterface) => data?.data?.data,
+      select: (data: ResponseInterface) => data?.data?.rows,
       ...options,
     },
   );
+    console.log('BBB', bbb)
+
+  return bbb
 }
