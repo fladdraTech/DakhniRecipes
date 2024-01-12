@@ -56,9 +56,7 @@ export function useGetAll<TData = any, TError = any>(
   let key = options?.params
     ? [options.key, JSON.stringify(options?.params)]
     : options?.key;
-
-
-  const bbb = useQuery(
+  return useQuery(
     key,
     () => getData(options.key, options?.params),
     {
@@ -67,7 +65,4 @@ export function useGetAll<TData = any, TError = any>(
       ...options,
     },
   );
-    console.log('BBB', bbb)
-
-  return bbb
 }

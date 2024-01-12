@@ -33,22 +33,22 @@ const SignInPage = ({
   const { mutate } = useCreateOrUpdate({
     url: "/accounts/login/",
     onSuccess: async (response) => {
-      console.log(response.data["token"]);
+      // console.log(response.data["token"]);
       await AsyncStorage.setItem("userToken", response.data["token"]);
       setApiHeaders();
       ToastAndroid.show("Login Successfully", ToastAndroid.SHORT);
       navigation.navigate("HomeScreen");
     },
     onError: (err) => {
-      console.log("formdata errors", errors);
-      console.log("err.data err.data err.data", err.data);
+      // console.log("formdata errors", errors);
+      // console.log("err.data err.data err.data", err.data);
       ToastAndroid.show("Something went wrong", ToastAndroid.SHORT);
     },
   });
 
   const onSubmit = () => {
     const data = getValues();
-    console.log("<========submittt data", data);
+    // console.log("<========submittt data", data);
     if (!data["email"] || !data["password"]) {
       ToastAndroid.show(
         "Please enter email and password!!",

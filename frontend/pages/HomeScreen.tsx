@@ -21,9 +21,14 @@ import Icon from "react-native-vector-icons/Ionicons";
 import CustomTabs from "../components/common/CustomTabs";
 import SimpleCard from "../components/home/SimpleCard";
 import { useGetAll } from "../hooks";
-import { CategoryInterface } from "../interfaces";
-import BigCard from '../components/common/BigCard'
-
+import {
+  CategoryInterface,
+  GetNewInteface,
+  GetPopularInterface,
+  GetRecipeInteface,
+} from "../interfaces";
+import BigCard from "../components/common/BigCard";
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 const HomeScreen = ({
   navigation,
@@ -61,24 +66,33 @@ const HomeScreen = ({
   const { data: popularCategories } = useGetAll({
     key: "/portal/popular-categories/",
     enabled: true,
-    onSuccess(data) {
-      console.log("onSuccessonSuccessonSuccess", data);
-    },
-    onError(err) {
-      console.log("ERRRIRIRIRIRI", err);
-    },
   });
   const { data: allCategories } = useGetAll({
     key: "/portal/category/",
     enabled: true,
-    onSuccess(data) {
-      console.log("onSuccessonSuccessonSuccess", data);
-    },
-    onError(err) {
-      console.log("ERRRIRIRIRIRI", err);
-    },
   });
-  console.log("popularCategories", popularCategories);
+
+  const { data: getRecipe } = useGetAll({
+    key: "/recipes/list/?random=true",
+    enabled: true,
+  });
+
+  const { data: popularCat } = useGetAll({
+    key: "recipes/popular-recipes/list/?q=kebabs",
+    enabled: true,
+  });
+
+  const { data: newRecipe } = useGetAll({
+    key: "recipes/list/",
+    enabled: true,
+  });
+
+  const { data: trendingRecipe } = useGetAll({
+    key: "recipes/trending-recipes/list/",
+    enabled: true,
+  });
+
+  // console.log("qwertyuiopojhdsafgnm", getRecipe);
 
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
@@ -103,7 +117,10 @@ const HomeScreen = ({
                 barWidth={"70%"}
               ></CustomSearchBar>
 
-              <FilterButton btnWidth={40} Press={() => navigation.navigate('FilterPage')}></FilterButton>
+              <FilterButton
+                btnWidth={40}
+                Press={() => navigation.navigate("FilterPage")}
+              ></FilterButton>
             </View>
 
             <ScrollView
@@ -127,17 +144,26 @@ const HomeScreen = ({
                 : ""}
             </ScrollView>
 
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginRight: 20,
-                marginTop: 10,
-              }}
-            >
-              <DetailedCard></DetailedCard>
-              <DetailedCard></DetailedCard>
-            </View>
+            <ScrollView horizontal={true}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginRight: 20,
+                  marginTop: 10,
+                }}
+              >
+                {getRecipe && getRecipe.length
+                  ? getRecipe?.map((recipe: GetRecipeInteface) => (
+                      <DetailedCard
+                        recipeLabel={recipe.name}
+                        mins={recipe.cooking_time}
+                        imageUri={recipe.image1}
+                      ></DetailedCard>
+                    ))
+                  : ""}
+              </View>
+            </ScrollView>
 
             <View
               style={{
@@ -158,28 +184,22 @@ const HomeScreen = ({
             </View>
 
             <View>
-        <ScrollView horizontal={true} style={{flexDirection: 'row', marginTop: 20}}>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             </ScrollView>
-        </View>
-
-            <View>
-        <ScrollView horizontal={true} style={{flexDirection: "row", marginTop: 20}}>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             </ScrollView>
-        </View>
-
-            <View>
-        <ScrollView horizontal={true} style={{flexDirection: "row", marginTop: 20}}>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             </ScrollView>
-        </View>
+              <ScrollView
+                horizontal={true}
+                style={{ flexDirection: "row", marginTop: 20 }}
+              >
+                {trendingRecipe && trendingRecipe.length
+                  ? trendingRecipe?.map((trendRecipe: GetPopularInterface) => (
+                      <BigCard
+                        BigCardName={trendRecipe?.recipe?.name}
+                        imageUri={trendRecipe?.recipe?.image1}
+                        Rating={trendRecipe?.recipe?.rate}
+                        time={trendRecipe?.recipe?.cooking_time}
+                      ></BigCard>
+                    ))
+                  : ""}
+              </ScrollView>
+            </View>
 
             <View style={{ marginTop: 20 }}>
               <Text style={styles.popularText}>Popular Category</Text>
@@ -207,17 +227,26 @@ const HomeScreen = ({
                 : ""}
             </ScrollView>
 
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginRight: 20,
-                marginTop: 10,
-              }}
-            >
-              <DetailedCard></DetailedCard>
-              <DetailedCard></DetailedCard>
-            </View>
+            <ScrollView horizontal={true}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  marginRight: 20,
+                  marginTop: 10,
+                }}
+              >
+                {popularCat && popularCat.length
+                  ? popularCat?.map((popRecipe: GetPopularInterface) => (
+                      <DetailedCard
+                        recipeLabel={popRecipe?.recipe?.name}
+                        mins={popRecipe?.recipe?.cooking_time}
+                        imageUri={popRecipe?.recipe?.image1}
+                      ></DetailedCard>
+                    ))
+                  : ""}
+              </View>
+            </ScrollView>
 
             <View
               style={{
@@ -244,11 +273,14 @@ const HomeScreen = ({
                   flexDirection: "row",
                 }}
               >
-                <SimpleCard label={"Chicken Korma"}></SimpleCard>
-                <SimpleCard label={"Chicken Korma"}></SimpleCard>
-                <SimpleCard label={"Chicken Korma"}></SimpleCard>
-                <SimpleCard label={"Chicken Korma"}></SimpleCard>
-                <SimpleCard label={"Chicken Korma"}></SimpleCard>
+                {newRecipe && newRecipe.length
+                  ? newRecipe?.map((recipe: GetNewInteface) => (
+                      <SimpleCard
+                        label={recipe.name}
+                        imageUri={recipe.image1}
+                      ></SimpleCard>
+                    ))
+                  : ""}
               </View>
             </ScrollView>
 
