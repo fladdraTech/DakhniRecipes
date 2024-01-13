@@ -94,6 +94,8 @@ const HomeScreen = ({
             </Text>
           </View>
 
+          
+
           <View style={{ flexDirection: "column", position: "relative" }}>
             <View style={{ flexDirection: "row" }}>
               <CustomSearchBar
@@ -165,21 +167,7 @@ const HomeScreen = ({
              </ScrollView>
         </View>
 
-            <View>
-        <ScrollView horizontal={true} style={{flexDirection: "row", marginTop: 20}}>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             </ScrollView>
-        </View>
-
-            <View>
-        <ScrollView horizontal={true} style={{flexDirection: "row", marginTop: 20}}>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             <BigCard BigCardName='Chicken Platter'></BigCard>
-             </ScrollView>
-        </View>
+          
 
             <View style={{ marginTop: 20 }}>
               <Text style={styles.popularText}>Popular Category</Text>

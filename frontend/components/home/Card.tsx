@@ -11,7 +11,7 @@ import RatingChip from "../RatingChip";
 import { mediaUrl } from "../../utils/urls";
 
 interface CardProps {
-  CardName: string;
+  CardName?: string;
   imageUri?: string | null;
   CardWidth?: DimensionValue;
   CardHeight?: DimensionValue;

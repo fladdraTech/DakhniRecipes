@@ -22,7 +22,7 @@ const ResetPassPage = () => {
     </View>
 
     <View>
-        <BigButton btnLabel={'Reset Password'} btnWidth={300} btnPosition='relative' marginTop={40}></BigButton>
+        <BigButton btnLabel={'Reset Password'} btnWidth={300} btnPosition='relative' marginTop={40} btnHeight={60} btnBorder={8}></BigButton>
     </View>
 </SafeAreaView>
   )

@@ -78,7 +78,7 @@ const FilterPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => 
       </View>
       </View>
 
-      <BigButton  btnLabel={'Filter'} btnWidth={200} btnPosition={'relative'} marginTop={120} Press={() => navigation.navigate('HomeScreen')}></BigButton>
+      <BigButton  btnLabel={'Filter'} btnWidth={200} btnPosition={'relative'} marginTop={120} Press={() => navigation.navigate('HomeScreen')} btnHeight={60} btnBorder={8}></BigButton>
 
     </SafeAreaView>
 

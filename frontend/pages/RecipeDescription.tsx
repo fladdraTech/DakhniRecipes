@@ -6,6 +6,7 @@ import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import BigButton from '../components/common/BigButton';
 import CustomTabs from '../components/common/CustomTabs';
 import IngredientsList from '../components/IngredientsList';
+import CircularAvatar from '../components/CircleAvatar';
 
 const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>{
     const [searchText, setSearchText] = useState('');
@@ -27,8 +28,7 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
     return (
       <ScrollView>
       <View style={{flexDirection:'row',alignSelf:'center',marginBottom:20}}>
-        
-          
+      
       <BigCard BigCardName='Biryani' BigCardWidth={360} Review='13k Reviews'></BigCard>
       
         </View>

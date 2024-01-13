@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, DimensionValue, ViewStyle } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, DimensionValue, ViewStyle, AnimatableNumericValue } from 'react-native'
 import React from 'react'
 import Icon  from 'react-native-vector-icons/Ionicons'
 import LinearGradient  from 'react-native-linear-gradient'
@@ -9,12 +9,14 @@ interface BigButtonProps {
     btnLabel: string;
     btnWidth:DimensionValue;
     marginTop? : DimensionValue;
+    btnHeight : DimensionValue;
     btnPosition?: 'absolute' | 'relative'  | undefined;
+    btnBorder? : AnimatableNumericValue;
     Press?: () => void;
   }
 
 
-const BigButton: React.FC<BigButtonProps> = ({btnLabel, btnWidth,btnPosition= 'absolute', marginTop, Press}) => {
+const BigButton: React.FC<BigButtonProps> = ({btnLabel,btnBorder, btnWidth,btnPosition= 'absolute', marginTop, btnHeight, Press}) => {
    
   const styles = StyleSheet.create({
     gradient: {
@@ -33,7 +35,7 @@ const BigButton: React.FC<BigButtonProps> = ({btnLabel, btnWidth,btnPosition= 'a
         position: btnPosition,
         bottom: 20,
         alignSelf: 'center',
-        height: 54,
+        height: btnHeight,
         width: btnWidth,
         textAlign:'center',
         marginTop: marginTop,
@@ -41,7 +43,7 @@ const BigButton: React.FC<BigButtonProps> = ({btnLabel, btnWidth,btnPosition= 'a
       buttonGradient: {
         flexDirection: 'row',
         alignItems: 'center',
-        borderRadius: 8,
+        borderRadius: btnBorder,
         paddingHorizontal: 20,
         paddingVertical: 14,
         justifyContent:'center'

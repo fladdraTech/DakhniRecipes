@@ -122,6 +122,8 @@ const SignInPage = ({
         btnWidth={300}
         btnPosition={"relative"}
         marginTop={40}
+        btnBorder={8}
+        btnHeight={60}
         Press={() => onSubmit()}
       />
 

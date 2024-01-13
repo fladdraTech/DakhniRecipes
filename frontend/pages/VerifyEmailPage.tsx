@@ -24,7 +24,7 @@ const VerifyEmailPage = ({ navigation }: { navigation: NavigationProp<ParamListB
         </View>
 
         <View>
-            <BigButton btnLabel={'Verify email'} btnWidth={300} btnPosition='relative' marginTop={40} Press={() => navigation.navigate('ResetPassPage')}></BigButton>
+            <BigButton btnLabel={'Verify email'} btnWidth={300} btnPosition='relative' marginTop={40} Press={() => navigation.navigate('ResetPassPage')} btnHeight={60} btnBorder={8}></BigButton>
         </View>
     </SafeAreaView>
   )

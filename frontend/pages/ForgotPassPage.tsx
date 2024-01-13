@@ -22,7 +22,7 @@ const ForgotPassPage = ({ navigation }: { navigation: NavigationProp<ParamListBa
         </View>
 
         <View>
-            <BigButton btnLabel={'Confirm'} btnWidth={300} btnPosition='relative' marginTop={40} Press={() => navigation.navigate('VerifyEmailPage')}></BigButton>
+            <BigButton btnLabel={'Confirm'} btnWidth={300} btnPosition='relative' marginTop={40} Press={() => navigation.navigate('VerifyEmailPage')} btnHeight={60} btnBorder={8}></BigButton>
         </View>
     </SafeAreaView>
   )

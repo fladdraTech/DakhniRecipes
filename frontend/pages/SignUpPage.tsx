@@ -159,8 +159,7 @@ const RegistrationScreen: React.FC<RegistrationScreenProps> = ({
           Press={() => onSubmit()}
           btnLabel={"Sign Up"}
           btnWidth={300}
-          btnPosition={"relative"}
-        ></BigButton>
+          btnPosition={"relative"} btnHeight={60} btnBorder={8}        ></BigButton>
       </View>
 
       <TouchableOpacity style={styles.gButton}>
