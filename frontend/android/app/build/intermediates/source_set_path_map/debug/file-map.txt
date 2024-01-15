@@ -37,8 +37,10 @@ com.dakhnirecipe.app-packageDebugResources-35 E:\Development\DakhniRecipes\front
 com.dakhnirecipe.app-merged_res-36 E:\Development\DakhniRecipes\frontend\android\app\build\intermediates\merged_res\debug
 com.dakhnirecipe.app-debug-37 E:\Development\DakhniRecipes\frontend\android\app\src\debug\res
 com.dakhnirecipe.app-main-38 E:\Development\DakhniRecipes\frontend\android\app\src\main\res
-com.dakhnirecipe.app-packaged_res-39 E:\Development\DakhniRecipes\frontend\node_modules\@react-native-masked-view\masked-view\android\build\intermediates\packaged_res\debug
-com.dakhnirecipe.app-packaged_res-40 E:\Development\DakhniRecipes\frontend\node_modules\react-native-linear-gradient\android\build\intermediates\packaged_res\debug
-com.dakhnirecipe.app-packaged_res-41 E:\Development\DakhniRecipes\frontend\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\debug
-com.dakhnirecipe.app-packaged_res-42 E:\Development\DakhniRecipes\frontend\node_modules\react-native-screens\android\build\intermediates\packaged_res\debug
-com.dakhnirecipe.app-packaged_res-43 E:\Development\DakhniRecipes\frontend\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\debug
+com.dakhnirecipe.app-packaged_res-39 E:\Development\DakhniRecipes\frontend\node_modules\@react-native-async-storage\async-storage\android\build\intermediates\packaged_res\debug
+com.dakhnirecipe.app-packaged_res-40 E:\Development\DakhniRecipes\frontend\node_modules\@react-native-masked-view\masked-view\android\build\intermediates\packaged_res\debug
+com.dakhnirecipe.app-packaged_res-41 E:\Development\DakhniRecipes\frontend\node_modules\@react-native-picker\picker\android\build\intermediates\packaged_res\debug
+com.dakhnirecipe.app-packaged_res-42 E:\Development\DakhniRecipes\frontend\node_modules\react-native-linear-gradient\android\build\intermediates\packaged_res\debug
+com.dakhnirecipe.app-packaged_res-43 E:\Development\DakhniRecipes\frontend\node_modules\react-native-safe-area-context\android\build\intermediates\packaged_res\debug
+com.dakhnirecipe.app-packaged_res-44 E:\Development\DakhniRecipes\frontend\node_modules\react-native-screens\android\build\intermediates\packaged_res\debug
+com.dakhnirecipe.app-packaged_res-45 E:\Development\DakhniRecipes\frontend\node_modules\react-native-vector-icons\android\build\intermediates\packaged_res\debug

@@ -8,6 +8,8 @@ import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import Sample from './Sample';
 import RecipeDescription from './RecipeDescription';
 import LinearGradient from 'react-native-linear-gradient';
+import RecipeCreatePage from './RecipeCreatePage';
+
 // import Rating from './Rating';
 
 
@@ -41,7 +43,7 @@ const LandingPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>
         </ImageBackground>
 
         
-        <BigButton btnLabel={'Start Cooking'} btnWidth={240} Press={() => navigation.navigate('SignInPage')} btnPosition={'absolute'} btnHeight={60} btnBorder={8}/>
+        <BigButton btnLabel={'Start Cooking'} btnWidth={240} Press={() => navigation.navigate('RecipeCreatePage')} btnPosition={'absolute'} btnHeight={60} btnBorder={8}/>
       </View>
     </SafeAreaView>
   )

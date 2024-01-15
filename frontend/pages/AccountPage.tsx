@@ -1,20 +1,48 @@
-import { View, Text,Image, ScrollView } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import Profile from '../components/Profile'
-import EditPage from './EditPage'
-import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import CircularAvatar from '../components/CircleAvatar'
-import ProfileComponent from '../components/home/ProfileComponent'
-import BigButton from '../components/common/BigButton'
-import BigCard from '../components/common/BigCard'
-import BottomNavigationBar from '../components/BottomNavigationBar'
+import { View, Text, Image, ScrollView } from "react-native";
+import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Profile from "../components/Profile";
+import EditPage from "./EditPage";
+import { NavigationProp, ParamListBase } from "@react-navigation/native";
+import CircularAvatar from "../components/CircleAvatar";
+import ProfileComponent from "../components/home/ProfileComponent";
+import BigButton from "../components/common/BigButton";
+import BigCard from "../components/common/BigCard";
+import BottomNavigationBar from "../components/BottomNavigationBar";
+
+const ScrollViewContent = () => (
+  <ScrollView horizontal={false}>
+    <View>
+    <BigCard
+              BigCardName="Biryani"
+              BigCardWidth={360}
+              Review="13k Reviews"
+            ></BigCard>
+            <BigCard
+              BigCardName="Biryani"
+              BigCardWidth={360}
+              Review="13k Reviews"
+            ></BigCard>
+            <BigCard
+              BigCardName="Biryani"
+              BigCardWidth={360}
+              Review="13k Reviews"
+            ></BigCard>
+            <BigCard
+              BigCardName="Biryani"
+              BigCardWidth={360}
+              Review="13k Reviews"
+            ></BigCard>
+    </View>
+  </ScrollView>
+  );
 
 
-
-
-const AccountPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
-
+const AccountPage = ({
+  navigation,
+}: {
+  navigation: NavigationProp<ParamListBase>;
+}) => {
   const onItemTapped = (index: number) => {
     switch (index) {
       case 0:
@@ -29,47 +57,40 @@ const AccountPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>
       case 4:
         navigation.navigate("AccountPage");
         break;
-  
+
       default:
         break;
     }
   };
   return (
+    
     <SafeAreaView>
-      <ScrollView>
-        <View style={{flexDirection: "column"}}>
-          <View>
+      <View style={{ flexDirection: "column" }}>
+        <View>
           <Profile></Profile>
-          </View>
-            
-            <View style={{margin: 10}}>
-            <ProfileComponent></ProfileComponent> 
-            </View> 
+        </View>
 
-             </View>
-
-             <View style={{margin: 20, padding: 20}}>
-          <BigButton btnLabel='Recipe' btnWidth={"100%"} btnHeight={50} btnBorder={10}  btnPosition='relative'></BigButton>
-
-          <View style={{flexDirection:'column',alignSelf:'center',marginBottom:20}}>
-      
-      <BigCard BigCardName='Biryani' BigCardWidth={360} Review='13k Reviews'></BigCard>
-      <BigCard BigCardName='Biryani' BigCardWidth={360} Review='13k Reviews'></BigCard>
-
-      <View style={{ marginTop: 70,position:'relative' }}>
-        <BottomNavigationBar
-          onItemTapped={onItemTapped}
-          selectedIndex={0}
-        ></BottomNavigationBar>
+        <View style={{ margin: 10 }}>
+          <ProfileComponent></ProfileComponent>
+        </View>
       </View>
-      
+
+      <View style={{ margin: 20, padding: 20 }}>
+        <BigButton
+          btnLabel="Recipe"
+          btnWidth={"100%"}
+          btnHeight={50}
+          btnBorder={10}
+          btnPosition="relative"
+        ></BigButton>
         </View>
-        </View>
+       
+       <ScrollViewContent/>
 
         
-        
-        
-        {/* <View>
+      
+
+      {/* <View>
           <View>
             <Profile></Profile>
           </View>
@@ -77,9 +98,9 @@ const AccountPage = ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>
               <ProfileComponent></ProfileComponent>
             </View>
         </View> */}
-        </ScrollView>
-    </SafeAreaView>
-  )
-}
+        </SafeAreaView>
+    
+  );
+};
 
-export default AccountPage
+export default AccountPage;

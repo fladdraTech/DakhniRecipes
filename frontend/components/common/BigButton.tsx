@@ -13,10 +13,11 @@ interface BigButtonProps {
     btnPosition?: 'absolute' | 'relative'  | undefined;
     btnBorder? : AnimatableNumericValue;
     Press?: () => void;
+    icon?:string
   }
 
 
-const BigButton: React.FC<BigButtonProps> = ({btnLabel,btnBorder, btnWidth,btnPosition= 'absolute', marginTop, btnHeight, Press}) => {
+const BigButton: React.FC<BigButtonProps> = ({btnLabel,btnBorder, btnWidth,btnPosition= 'absolute', marginTop, btnHeight, Press,icon}) => {
    
   const styles = StyleSheet.create({
     gradient: {
@@ -76,7 +77,7 @@ const BigButton: React.FC<BigButtonProps> = ({btnLabel,btnBorder, btnWidth,btnPo
           <LinearGradient colors={['#FC1125', '#FF9300']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={styles.buttonGradient}>
             <View style={styles.buttonContent}>
               <Text style={styles.buttonText}>{btnLabel}</Text>
-              <Icon name="arrow-forward" size={20} color="white" style={styles.buttonIcon} />
+              { icon && <Icon name="arrow-forward" size={20} color="white" style={styles.buttonIcon} />}
             </View>
           </LinearGradient> 
         </TouchableOpacity>

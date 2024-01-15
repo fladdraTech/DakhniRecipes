@@ -1,14 +1,15 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet,Image } from 'react-native'
 import React from 'react'
 
 interface StepsCardProps {
     txtLabel: string;
     description: string;
     time? : string;
+    component?:string;
     Press?: () => void;
   }
 
-const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time}) => {
+const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time,component}) => {
   return (
     <View style={styles.cardContainer}>
      <View>
@@ -20,6 +21,9 @@ const StepsCard: React.FC<StepsCardProps>  = ({txtLabel, description, time}) => 
         </Text>
         <Text style={styles.time}>{time}</Text>
      </View>
+     
+     {component && <View><Image source={require('../assets/AddRecipe.png')}></Image>
+               <Text style={{color:'black'}}>Add New Step</Text></View>}
     </View>
   )
 }

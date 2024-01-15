@@ -37,7 +37,7 @@ interface ProfileProps {
     return(
       <View>
       <View style={{flexDirection: "column"}}>
-            <CircularAvatar image="star"></CircularAvatar>
+            <CircularAvatar image="photo"></CircularAvatar>
             <Text style={{...styles.Name}}>{Name}</Text>
             <Text style={{...styles.Label}}>{Label}</Text>
             <Text style={{...styles.Description}}>{Description}</Text>

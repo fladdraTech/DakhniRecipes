@@ -17,7 +17,8 @@ import FilterPage from './pages/FilterPage';
 import RecipeDescription from './pages/RecipeDescription';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import { Text } from 'react-native';
-import IngredientsList from './components/IngredientsList';
+import IngredientsList from './components/Procedure';
+import RecipeCreatePage from './pages/RecipeCreatePage';
 const queryClient = new QueryClient();
 
 function App() {
@@ -44,7 +45,8 @@ function App() {
           <Stack.Screen name="SearchRecipes" component={SearchRecipes} />
           <Stack.Screen name="FilterPage" component={FilterPage} />
           <Stack.Screen name="RecipeDescription" component={RecipeDescription} />
-          <Stack.Screen name="IngredientsList" component={IngredientsList} />
+          <Stack.Screen name="IngredientsList" component={IngredientsList} />                            
+          <Stack.Screen name="RecipeCreatePage" component={RecipeCreatePage} />                            
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>

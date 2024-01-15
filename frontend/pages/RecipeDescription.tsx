@@ -5,8 +5,9 @@ import StarCustomTab from "../components/common/StarCustomTab";
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import BigButton from '../components/common/BigButton';
 import CustomTabs from '../components/common/CustomTabs';
-import IngredientsList from '../components/IngredientsList';
+import IngredientsList from '../components/IngredientList'
 import CircularAvatar from '../components/CircleAvatar';
+import Procedure from '../components/Procedure';
 
 const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase>}) =>{
     const [searchText, setSearchText] = useState('');
@@ -19,9 +20,9 @@ const  RecipeDescription= ({navigation}:{navigation:NavigationProp<ParamListBase
 
   let list;
   if (longTabText === 'Ingredients' ) {
-    list = <Text style={{color:'black'}}> Procedure </Text> ;
-  } else {
     list = <IngredientsList></IngredientsList>
+  } else {
+    list = <Procedure></Procedure>
     
   }
 
