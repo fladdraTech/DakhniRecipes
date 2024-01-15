@@ -14,8 +14,11 @@ import SavedRecipePage from './pages/SavedRecipePage';
 import NotificationPage from './pages/NotificationPage';
 import AccountPage from './pages/AccountPage';
 import FilterPage from './pages/FilterPage';
+import RecipeDescription from './pages/RecipeDescription';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import { Text } from 'react-native';
+import IngredientsList from './components/IngredientsList';
+import BottomBarContainer from './pages/BottomBarContainer';
 const queryClient = new QueryClient();
 
 function App() {
@@ -33,6 +36,7 @@ function App() {
           <Stack.Screen name="SignInPage" component={SignInPage} />
           <Stack.Screen name="ForgotPassPage" component={ForgotPassPage} />
           <Stack.Screen name="VerifyEmailPage" component={VerifyEmailPage} />
+          <Stack.Screen name="BottomBarContainer" component={BottomBarContainer}/>
           <Stack.Screen name="ResetPassPage" component={ResetPassPage} />
           <Stack.Screen name="SavedRecipePage" component={SavedRecipePage} />
           <Stack.Screen name="NotificationPage" component={NotificationPage} />
@@ -41,6 +45,8 @@ function App() {
           <Stack.Screen name="Sample" component={Sample}/>
           <Stack.Screen name="SearchRecipes" component={SearchRecipes} />
           <Stack.Screen name="FilterPage" component={FilterPage} />
+          <Stack.Screen name="RecipeDescription" component={RecipeDescription} />
+          <Stack.Screen name="IngredientsList" component={IngredientsList} />
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>

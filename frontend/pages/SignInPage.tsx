@@ -6,21 +6,67 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-} from 'react-native';
-import React from 'react';
-import InputField from '../components/common/InputField';
-import BigButton from '../components/common/BigButton';
-import {NavigationProp, ParamListBase} from '@react-navigation/native';
+  ToastAndroid,
+} from "react-native";
+import React from "react";
+import InputField from "../components/common/InputField";
+import BigButton from "../components/common/BigButton";
+import { NavigationProp, ParamListBase } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "./SignUpPage";
+import { useForm, Controller } from "react-hook-form";
+import { useCreateOrUpdate } from "../hooks";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { setApiHeaders } from "../utils/setApiHeaders";
 
 const SignInPage = ({
   navigation,
 }: {
   navigation: NavigationProp<ParamListBase>;
 }) => {
-  const [text, onChangeText] = React.useState('');
+  const {
+    control,
+    formState: { errors },
+    getValues,
+  } = useForm();
 
-  const handleButtonPress = () => {
-    // Implement the functionality for the button press
+  const { mutate } = useCreateOrUpdate({
+    url: "/accounts/login/",
+    onSuccess: async (response) => {
+      // console.log(response.data["token"]);
+      await AsyncStorage.setItem("userToken", response.data["token"]);
+      setApiHeaders();
+      ToastAndroid.show("Login Successfully", ToastAndroid.SHORT);
+      navigation.reset({
+        routes: [{ name: "BottomBarContainer" }],
+        index: 0,
+      });
+    },
+    onError: (err) => {
+      // console.log("formdata errors", errors);
+      // console.log("err.data err.data err.data", err.data);
+      ToastAndroid.show("Something went wrong", ToastAndroid.SHORT);
+    },
+  });
+
+  const onSubmit = () => {
+    const data = getValues();
+    // console.log("<========submittt data", data);
+    if (!data["email"] || !data["password"]) {
+      ToastAndroid.show(
+        "Please enter email and password!!",
+        ToastAndroid.SHORT
+      );
+      return;
+    }
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    const email = data["email"];
+    if (reg.test(email) === false) {
+      ToastAndroid.show("Invalid format for email!!", ToastAndroid.SHORT);
+      return;
+    }
+
+    mutate(data);
   };
 
   return (
@@ -30,31 +76,60 @@ const SignInPage = ({
         <Text style={styles.welcomeText}>Welcome back!</Text>
       </View>
 
-      <View style={{marginTop: 20}}>
-        <InputField textforInput={'Email'} placeholder={'Enter email'} />
-        <InputField textforInput={'Password'} placeholder={'Enter password'} />
+      <View style={{ marginTop: 20 }}>
+        <Controller
+          control={control}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <InputField
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+              textforInput={"Email"}
+              placeholder={"Enter email"}
+            />
+          )}
+          name="email"
+          rules={{ required: "Email is required" }}
+        />
+
+        <Controller
+          control={control}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <InputField
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+              textforInput={"Password"}
+              placeholder={"Enter Password"}
+              secureTextEntry={true}
+            />
+          )}
+          name="password"
+          rules={{ required: "Password is required" }}
+        />
       </View>
 
       <TouchableOpacity>
         <View>
           <Text
             style={styles.forgotText}
-            onPress={() => navigation.navigate('ForgotPassPage')}>
+            onPress={() => navigation.navigate("ForgotPassPage")}
+          >
             Forgot Password?
           </Text>
         </View>
       </TouchableOpacity>
 
       <BigButton
-        btnLabel={'Sign In'}
+        btnLabel={"Sign In"}
         btnWidth={300}
-        btnPosition={'relative'}
+        btnPosition={"relative"}
         marginTop={40}
-        Press={() => navigation.navigate('HomeScreen')}
+        Press={() => onSubmit()}
       />
 
       <TouchableOpacity style={styles.gButton}>
-        <Image source={require('../assets/gbutton.png')} />
+        <Image source={require("../assets/gbutton.png")} />
       </TouchableOpacity>
 
       <View style={styles.bottomText}>
@@ -62,7 +137,8 @@ const SignInPage = ({
         <TouchableOpacity>
           <Text
             style={styles.signUpText}
-            onPress={() => navigation.navigate('SignUpPage')}>
+            onPress={() => navigation.navigate("SignUpPage")}
+          >
             Sign up
           </Text>
         </TouchableOpacity>
@@ -79,9 +155,9 @@ const styles = StyleSheet.create({
   helloText: {
     fontSize: 30,
     // lineHeight: 40,
-    fontWeight: '500',
-    color: 'black',
-    textAlign: 'left',
+    fontWeight: "500",
+    color: "black",
+    textAlign: "left",
     marginTop: 20,
     paddingLeft: 20,
     paddingBottom: 10,
@@ -90,36 +166,36 @@ const styles = StyleSheet.create({
 
   welcomeText: {
     fontSize: 20,
-    fontWeight: '500',
-    color: 'black',
+    fontWeight: "500",
+    color: "black",
     marginLeft: 10,
     paddingLeft: 20,
   },
 
   forgotText: {
-    textAlign: 'left',
+    textAlign: "left",
     marginLeft: 10,
     paddingLeft: 20,
     marginTop: 10,
-    fontWeight: '400',
+    fontWeight: "400",
     fontSize: 14,
-    color: '#FC1125',
-    textDecorationLine: 'underline',
+    color: "#FC1125",
+    textDecorationLine: "underline",
   },
 
   gButton: {
-    alignSelf: 'center',
+    alignSelf: "center",
   },
 
   bottomText: {
-    flexDirection: 'row',
-    alignSelf: 'center',
+    flexDirection: "row",
+    alignSelf: "center",
     marginTop: 10,
   },
 
   signUpText: {
-    color: '#FC1125',
-    textDecorationLine: 'underline',
+    color: "#FC1125",
+    textDecorationLine: "underline",
   },
 });
 

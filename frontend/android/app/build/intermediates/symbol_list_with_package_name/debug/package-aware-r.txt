@@ -2880,6 +2880,17 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable assets_bigcardimage
+drawable assets_blackstar
+drawable assets_category
+drawable assets_filter
+drawable assets_gbutton
+drawable assets_gradientstar
+drawable assets_homeimage
+drawable assets_review
+drawable assets_sample
+drawable assets_shareicon
+drawable assets_star2
 drawable autofill_inline_suggestion_chip_background
 drawable avd_hide_password
 drawable avd_show_password
@@ -2967,6 +2978,8 @@ drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
+drawable node_modules_reactnavigation_elements_src_assets_backicon
+drawable node_modules_reactnavigation_elements_src_assets_backiconmask
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
