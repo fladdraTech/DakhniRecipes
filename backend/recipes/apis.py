@@ -1,5 +1,7 @@
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from django.db import transaction
+from django.db.models import Q
 
 from portal.base import BaseAPIView
 from portal.models import Category
@@ -21,6 +23,7 @@ from .serializers import (
     GetTrendingRecipeSerializer,
     GetPopularRecipeSerializer,
 )
+from social.models import RecentlySearched
 
 
 class RecipeView(BaseAPIView):
@@ -99,3 +102,31 @@ class TrendingRecipeView(BaseAPIView):
     related_models = {}
     allowed_methods = [GETALL]
     query_set = TrendingRecipe.objects.all().select_related("recipe")
+
+
+class FilterRecipeView(APIView):
+    def post(self, request, *args, **kwargs):
+        time = request.data.get("time")
+        rate = request.data.get("rate")
+        categories_list = request.data.get("categories")
+        filters = Q()
+        order_by = "-created_on"
+        if rate and rate != "" and rate != "undefined":
+            filters &= Q(rate__rate=int(rate))
+        if categories_list and len(categories_list) > 0:
+            filters &= Q(category__in=categories_list)
+        if time == "oldest":
+            order_by = "created_on"
+        if time == "popularity":
+            recently_searched = RecentlySearched.objects.all().values_list(
+                "recipe__id", flat=True
+            )
+            filters &= Q(id__in=recently_searched)
+        recipes = Recipe.objects.filter(filters).order_by(order_by)
+        return Response(
+            data={
+                "rows": GetAllRecipeSerializer(recipes, many=True).data,
+                "count": recipes.count(),
+            },
+            status=200,
+        )

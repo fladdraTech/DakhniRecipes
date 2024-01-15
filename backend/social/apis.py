@@ -61,6 +61,11 @@ class RecentlSearchedRecipeView(BaseAPIView):
         return super().get(request, id, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
+        user = request.thisUser.id
+        recipe = request.data.get("recipe")
+        qs = RecentlySearched.objects.filter(Q(user=user) & Q(recipe=recipe))
+        if qs.exists() > 0:
+            return Response(data={"msg": "Saved Successfully"}, status=200)
         request.data["user"] = request.thisUser.id
         recently_search_serializer = RecentlySearchedSerializer(data=request.data)
         if recently_search_serializer.is_valid():
@@ -86,12 +91,18 @@ class SavedRecipeView(BaseAPIView):
         return super().get(request, id, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        request.data["user"] = request.thisUser.id
-        saved_recipe_serializer = SavedRecipeSerializer(data=request.data)
-        if saved_recipe_serializer.is_valid():
-            obj = saved_recipe_serializer.save()
-            return Response(
-                data={"msg": "Saved Successfully", "id": obj.id}, status=200
-            )
+        user = request.thisUser.id
+        recipe = request.data.get("recipe")
+        qs = SavedRecipe.objects.filter(Q(user=user) & Q(recipe=recipe))
+        if qs.exists() > 0:
+            qs.delete()
         else:
-            return Response(data=saved_recipe_serializer.errors, status=400)
+            request.data["user"] = user
+            saved_recipe_serializer = SavedRecipeSerializer(data=request.data)
+            if saved_recipe_serializer.is_valid():
+                obj = saved_recipe_serializer.save()
+                return Response(
+                    data={"msg": "Saved Successfully", "id": obj.id}, status=200
+                )
+            else:
+                return Response(data=saved_recipe_serializer.errors, status=400)
