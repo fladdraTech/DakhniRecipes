@@ -53,8 +53,9 @@ class SendOTPView(APIView):
         user.otp = otp
         user.is_verified = False
         user.save()
-        subject = "forget password otp"
-        body = f"otp is {otp}."
+        subject = "Your One-Time Password for Dakhni Recipe App"
+        body = f"""Dear {user.name},\n\nThank you for using Dakhni Recipe app. To ensure the security of your account, we have generated a one-time password (OTP) for your authentication.\n\nYour OTP is: {otp}\n\nIf you did not request this OTP or if you have any concerns regarding the security of your account, please contact our support team immediately.\n\nThank you,\nDakhni Recipe Team"""
+
         recievers = [request.data.get("email")]
         to_cc = ["momin.meenaz29@gmail.com"]
         trigger_mails(subject, body, recievers, to_cc)
