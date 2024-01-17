@@ -133,33 +133,33 @@ class FilterRecipeView(APIView):
         )
 
 
-# class HomePageView(APIView):
-#     def get(self, request, *args, **kwargs):
-#         limit = 20
-#         categories = Category.objects.all().order_by("-created_on")
-#         random_recipes = Recipe.objects.all().order_by("?")[:limit]
-#         trending_recipes = TrendingRecipe.objects.all().order_by("-created_on")[:limit]
-#         popular_recipes = PopularRecipe.objects.all().order_by("-created_on")[:limit]
-#         new_recipes = Recipe.objects.all().order_by("-created_on")[:limit]
-#         category_ids = PopularRecipe.objects.all().values_list(
-#             "recipe__category__id", flat=True
-#         )
-#         popular_categories = Category.objects.filter(id__in=category_ids).order_by(
-#             "-created_on"
-#         )
-#         data = {
-#             "category": CategoryLovSerializer(categories, many=True).data,
-#             "recipes": GetAllRecipeSerializer(random_recipes, many=True).data,
-#             "trending_recipes": GetTrendingRecipeSerializer(
-#                 trending_recipes, many=True
-#             ).data,
-#             "popular_category": CategoryLovSerializer(
-#                 popular_categories, many=True
-#             ).data,
-#             "popular_recipes": GetPopularRecipeSerializer(
-#                 popular_recipes, many=True
-#             ).data,
-#             "new_recipes": GetAllRecipeSerializer(new_recipes, many=True).data,
-#         }
-#         return Response(data={"rows": data}, status=200)
+class HomePageView(APIView):
+    def get(self, request, *args, **kwargs):
+        limit = 20
+        categories = Category.objects.all().order_by("-created_on")
+        random_recipes = Recipe.objects.all().order_by("?")[:limit]
+        trending_recipes = TrendingRecipe.objects.all().order_by("-created_on")[:limit]
+        popular_recipes = PopularRecipe.objects.all().order_by("-created_on")[:limit]
+        new_recipes = Recipe.objects.all().order_by("-created_on")[:limit]
+        category_ids = PopularRecipe.objects.all().values_list(
+            "recipe__category__id", flat=True
+        )
+        popular_categories = Category.objects.filter(id__in=category_ids).order_by(
+            "-created_on"
+        )
+        data = {
+            "category": CategoryLovSerializer(categories, many=True).data,
+            "recipes": GetAllRecipeSerializer(random_recipes, many=True).data,
+            "trending_recipes": GetTrendingRecipeSerializer(
+                trending_recipes, many=True
+            ).data,
+            "popular_category": CategoryLovSerializer(
+                popular_categories, many=True
+            ).data,
+            "popular_recipes": GetPopularRecipeSerializer(
+                popular_recipes, many=True
+            ).data,
+            "new_recipes": GetAllRecipeSerializer(new_recipes, many=True).data,
+        }
+        return Response(data={"rows": data}, status=200)
 
