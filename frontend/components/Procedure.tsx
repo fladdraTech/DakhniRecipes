@@ -22,7 +22,7 @@ const Procedure: React.FC<ProcedureProps>  = ({addStep,saveButton}) => {
     
     <ScrollView style={{flexDirection: 'column',maxWidth:'100%',paddingVertical:10}}>
 
-        <View style={{marginLeft: 20}}>
+        <View style={{alignSelf:'center'}}>
             <StepsCard txtLabel={'New Recipe Alert!'} description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 mins ago'></StepsCard>
             <StepsCard txtLabel={'New Recipe Alert!'} description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 mins ago'></StepsCard>
             <StepsCard txtLabel={'New Recipe Alert!'} description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 mins ago'></StepsCard>

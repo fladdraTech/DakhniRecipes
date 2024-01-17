@@ -4,38 +4,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Profile from "../components/Profile";
 import EditPage from "./EditPage";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
-import CircularAvatar from "../components/CircleAvatar";
+import CircularAvatar from "../components/CircularAvatar";
 import ProfileComponent from "../components/home/ProfileComponent";
 import BigButton from "../components/common/BigButton";
 import BigCard from "../components/common/BigCard";
 import BottomNavigationBar from "../components/BottomNavigationBar";
 
-const ScrollViewContent = () => (
-  <ScrollView horizontal={false}>
-    <View>
-    <BigCard
-              BigCardName="Biryani"
-              BigCardWidth={360}
-              Review="13k Reviews"
-            ></BigCard>
-            <BigCard
-              BigCardName="Biryani"
-              BigCardWidth={360}
-              Review="13k Reviews"
-            ></BigCard>
-            <BigCard
-              BigCardName="Biryani"
-              BigCardWidth={360}
-              Review="13k Reviews"
-            ></BigCard>
-            <BigCard
-              BigCardName="Biryani"
-              BigCardWidth={360}
-              Review="13k Reviews"
-            ></BigCard>
-    </View>
-  </ScrollView>
-  );
+// const ScrollViewContent = () => (
+//   <ScrollView horizontal={false}>
+    
+
+//   </ScrollView>
+//   );
 
 
 const AccountPage = ({
@@ -65,6 +45,7 @@ const AccountPage = ({
   return (
     
     <SafeAreaView>
+      <ScrollView>
       <View style={{ flexDirection: "column" }}>
         <View>
           <Profile></Profile>
@@ -74,7 +55,7 @@ const AccountPage = ({
           <ProfileComponent></ProfileComponent>
         </View>
       </View>
-
+      
       <View style={{ margin: 20, padding: 20 }}>
         <BigButton
           btnLabel="Recipe"
@@ -84,10 +65,44 @@ const AccountPage = ({
           btnPosition="relative"
         ></BigButton>
         </View>
-       
-       <ScrollViewContent/>
-
         
+       
+       {/* <ScrollViewContent/> */}
+       <ScrollView horizontal={false}>
+       <View>
+    <BigCard
+              BigCardName="Biryani"
+              BigCardWidth={360}
+              Review="13k Reviews"
+            ></BigCard>
+            <BigCard
+              BigCardName="Biryani"
+              BigCardWidth={360}
+              Review="13k Reviews"
+            ></BigCard>
+            <BigCard
+              BigCardName="Biryani"
+              BigCardWidth={360}
+              Review="13k Reviews"
+            ></BigCard>
+            <BigCard
+              BigCardName="Biryani"
+              BigCardWidth={360}
+              Review="13k Reviews"
+            ></BigCard>
+    </View>
+
+    
+
+    </ScrollView>
+
+    <View style={{ marginTop: 70 }}>
+        <BottomNavigationBar
+          onItemTapped={onItemTapped}
+          selectedIndex={0}
+          Press={() => navigation.navigate('RecipeCreatePage')}
+        ></BottomNavigationBar>
+      </View>
       
 
       {/* <View>
@@ -98,6 +113,8 @@ const AccountPage = ({
               <ProfileComponent></ProfileComponent>
             </View>
         </View> */}
+
+</ScrollView>
         </SafeAreaView>
     
   );

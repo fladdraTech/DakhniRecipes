@@ -258,6 +258,7 @@ const HomeScreen = ({
         <BottomNavigationBar
           onItemTapped={onItemTapped}
           selectedIndex={0}
+          Press={() => navigation.navigate('RecipeCreatePage')}
         ></BottomNavigationBar>
       </View>
     </SafeAreaView>

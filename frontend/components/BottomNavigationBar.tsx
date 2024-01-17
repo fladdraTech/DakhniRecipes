@@ -12,10 +12,10 @@ interface BottomBarProps {
     // setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
     disabled?: boolean;
     defaultSelected?: boolean; 
-    
+    Press?: ()=> void;
   }
 
-const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedIndex, disabled = false, defaultSelected = false,  }) => {
+const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedIndex, disabled = false, defaultSelected = false, Press }) => {
   const listofIcon = [
    'home',
     'bookmark-outline',
@@ -91,7 +91,7 @@ const BottomNavigationBar: React.FC<BottomBarProps> = ({ onItemTapped, selectedI
         <View style={styles.addIcon}>
            
            
-           <TouchableOpacity style={styles.addButton} >
+           <TouchableOpacity style={styles.addButton} onPress={Press}>
            <LinearGradient colors={['rgba(252, 17, 37, 1)', 'rgba(255, 147, 0, 1)']} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} style={{borderRadius:50,height:60,width:60,marginBottom:7}}>
            <Icon style={{alignSelf:'center', top:7}}
             name={'add-outline'}

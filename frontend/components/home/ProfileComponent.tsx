@@ -1,5 +1,5 @@
 import React from "react";
-import CircularAvatar from "../CircleAvatar";
+import CircularAvatar from "../CircularAvatar"
 import { View ,Text, StyleSheet} from "react-native";
 
 interface ProfileProps {

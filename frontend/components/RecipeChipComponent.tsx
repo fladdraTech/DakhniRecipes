@@ -8,7 +8,7 @@ interface RecipeChipProps {
     title?:string;
     image?:string;
     component?:string;
-    dropdowncomp?:string
+    dropdowncomp?:boolean
 }
 
 const Assets: {[key:string]:ImageURISource}= {
@@ -21,17 +21,16 @@ const RecipeChipComponenet : React.FC<RecipeChipProps> =({title,image,component,
     return(
         <View>
             <View style={styles.mainView}>
-                <View style={{flexDirection:'row',left:5}}>
+                <View style={{flexDirection:'row'}}>
                     {image && <Image source={Assets[image]} style={{marginTop:11}}></Image>}
                     <Text style={styles.text}>{title}</Text>
                 </View>
-                <View>
-                {component && <IncDecComponent></IncDecComponent>}
+                 <View style={{width:100}}>
                 {dropdowncomp && <DropDownList></DropDownList>}
+                {component && <IncDecComponent></IncDecComponent>}
                 </View>
                 
             </View>
-            
         </View>
     );
 };
@@ -44,7 +43,9 @@ const styles= StyleSheet.create({
         height:60,
         alignSelf:'center',
         borderRadius:9,
-        marginBottom:10,       
+        marginBottom:10,   
+        paddingLeft:5,
+        paddingRight:5    
     },
     text:{
         fontWeight:'300',

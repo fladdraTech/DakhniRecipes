@@ -12,6 +12,7 @@ MERGED from [:react-native-picker_picker] E:\Development\DakhniRecipes\frontend\
 MERGED from [:react-native-linear-gradient] E:\Development\DakhniRecipes\frontend\node_modules\react-native-linear-gradient\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-safe-area-context] E:\Development\DakhniRecipes\frontend\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-screens] E:\Development\DakhniRecipes\frontend\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-svg] E:\Development\DakhniRecipes\frontend\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-vector-icons] E:\Development\DakhniRecipes\frontend\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.react:react-android:0.73.2] C:\Users\Admin\.gradle\caches\transforms-3\d10d040f6dc36d35e250d48d5ebb15bd\transformed\jetified-react-android-0.73.2-debug\AndroidManifest.xml:2:1-24:12
 MERGED from [com.facebook.fresco:flipper-fresco-plugin:3.1.3] C:\Users\Admin\.gradle\caches\transforms-3\2b5ba21ddda073e33e012f0d689623c6\transformed\jetified-flipper-fresco-plugin-3.1.3\AndroidManifest.xml:8:1-13:12
@@ -193,6 +194,8 @@ MERGED from [:react-native-safe-area-context] E:\Development\DakhniRecipes\front
 MERGED from [:react-native-safe-area-context] E:\Development\DakhniRecipes\frontend\node_modules\react-native-safe-area-context\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-screens] E:\Development\DakhniRecipes\frontend\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-screens] E:\Development\DakhniRecipes\frontend\node_modules\react-native-screens\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-svg] E:\Development\DakhniRecipes\frontend\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-svg] E:\Development\DakhniRecipes\frontend\node_modules\react-native-svg\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-vector-icons] E:\Development\DakhniRecipes\frontend\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:react-native-vector-icons] E:\Development\DakhniRecipes\frontend\node_modules\react-native-vector-icons\android\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:react-android:0.73.2] C:\Users\Admin\.gradle\caches\transforms-3\d10d040f6dc36d35e250d48d5ebb15bd\transformed\jetified-react-android-0.73.2-debug\AndroidManifest.xml:10:5-44

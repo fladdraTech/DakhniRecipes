@@ -47,7 +47,7 @@ const NotificationPage = ({navigation}:{navigation:NavigationProp<ParamListBase>
             <Text style={styles.todayText}>Today</Text>
         </View>
 
-        <View style={{margin: 20}}>
+        <View style={{margin: 20,marginLeft:25}}>
             <StepsCard txtLabel={'New Recipe Alert!'} description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 mins ago'></StepsCard>
             <StepsCard txtLabel={'New Recipe Alert!'} description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 mins ago'></StepsCard>
             <StepsCard txtLabel={'New Recipe Alert!'} description={'Lorem Ipsum tempor incididunt ut labore et dolore,in voluptate velit esse cillum'} time='10 mins ago'></StepsCard>

@@ -14,7 +14,7 @@ import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import Ingredient from "../components/Ingredient";
 import IngredientsList from "../components/IngredientList";
 
-const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
+const RecipeCreatePage= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
     const onItemTapped = (index: number) => {
         switch (index) {
           case 0: 
@@ -65,15 +65,12 @@ const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
             <InputField  style={{marginRight:0,marginLeft:0}}></InputField>
             </View>
             </View>
-            <View style={{bottom:20}}>
+            <View style={{marginBottom:20}}>
 
                 <RecipeChipComponenet image="clock" title="Cook Time(Min)" component="{component}"></RecipeChipComponenet>
                 <RecipeChipComponenet image="serves" title="Serves" component="{component}"></RecipeChipComponenet>
-                <RecipeChipComponenet image="category" title="Category" dropdowncomp="{dropdownlist}"></RecipeChipComponenet>
+                <RecipeChipComponenet image="category" title="Category" dropdowncomp></RecipeChipComponenet>
 
-                
-
-                
 
 
             </View>
@@ -117,4 +114,4 @@ const Recipe= ({navigation}:{navigation:NavigationProp<ParamListBase>}) => {
         
     )
 } 
-export default Recipe
+export default RecipeCreatePage

@@ -30,9 +30,12 @@ const SearchRecipes = ({navigation}:{navigation:NavigationProp<ParamListBase>}) 
 
   return (
     <SafeAreaView style={{height:'100%'}}>
-      <View>
-        <Text style ={styles.SearchText}>Search Recipes</Text>
-      </View>
+      <View style={{flexDirection:'row',marginLeft:15,marginTop:20}}>
+            <TouchableOpacity>
+            <Image source={require('../assets/backArrow.png')} style={{marginRight:30,marginTop:5}}></Image>
+            </TouchableOpacity>
+                <Text style={{fontWeight:'400',fontSize:20,color:'black',marginLeft:60,textAlign:'center'}}>Search Recipes</Text>
+            </View>
 
       <View style = {{marginLeft: 20, flexDirection: 'row', position: 'relative' }}>
         <CustomSearchBar value={searchText} placeholder={'Search'} onChangeText={() => handleSearch} barWidth={'70%'}></CustomSearchBar>

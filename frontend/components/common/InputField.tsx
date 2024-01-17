@@ -22,8 +22,8 @@ const InputField: React.FC<InputField> = ({textforInput, placeholder,height,...o
       height:height,
       // margin: 12,
       borderWidth: 1,
-      marginLeft: 30,
-      marginRight: 30,
+      marginLeft: 20,
+      marginRight: 20,
       padding: 10,
       borderColor: '#FC1125',
       borderRadius: 10,
@@ -34,10 +34,10 @@ const InputField: React.FC<InputField> = ({textforInput, placeholder,height,...o
     inputText: {
       marginLeft: 10,
       marginTop: 15,
-      paddingLeft: 20,
+      paddingLeft: 10,
       lineHeight: 27,
       color: 'black',
-
+    
     }
   })
 

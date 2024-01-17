@@ -19,6 +19,7 @@ import {QueryClient, QueryClientProvider} from 'react-query';
 import { Text } from 'react-native';
 import IngredientsList from './components/Procedure';
 import RecipeCreatePage from './pages/RecipeCreatePage';
+import ReviewPage from './pages/ReviewPage';
 const queryClient = new QueryClient();
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
           <Stack.Screen name="RecipeDescription" component={RecipeDescription} />
           <Stack.Screen name="IngredientsList" component={IngredientsList} />                            
           <Stack.Screen name="RecipeCreatePage" component={RecipeCreatePage} />                            
+          <Stack.Screen name="ReviewPage" component={ReviewPage} />                            
         </Stack.Navigator>
       </NavigationContainer>
     </QueryClientProvider>
