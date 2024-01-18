@@ -4,6 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import InputField from "../components/common/InputField";
 import BigButton from "../components/common/BigButton";
 import CircularAvatar from "../components/CircularAvatar";
+import ProfileComponent from "../components/home/ProfileComponent";
+import ReviewComponent from "../components/ReviewComponent";
    
 interface ReviewPageProps{
     Reviews?:string
@@ -32,16 +34,24 @@ const ReviewPage: React.FC<ReviewPageProps> = ({Reviews='0 Reviews'}) =>{
             <InputField textforInput="Leave a Comment"></InputField>
         </View>
         
+        
         </View>
         <View style={{flexDirection:'column',alignSelf:'flex-end',marginRight:65,marginTop:80}}>
         <BigButton btnHeight={50} btnWidth={90} btnBorder={10} btnLabel="Save"></BigButton>
         </View>
         </View>   
         
-        <View style={{flexDirection:'row',alignSelf:'flex-start',marginLeft:20}}>
-        <CircularAvatar height={40} width={40} image="photo" ></CircularAvatar>
-        <Text>Name</Text>
+        <View style={{flexDirection:'column'}}>
+        <View style={{marginTop:30}}>
+        <ReviewComponent name="Elena" time="Jun 12 2020,12:42" review="Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quod?"></ReviewComponent>
         </View>
+
+        <View style={{marginTop:30}}>
+        <ReviewComponent name="Elena" time="Jun 12 2020,12:42" review="Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quod?"></ReviewComponent>
+        </View>
+        
+        </View>
+        
         
      </SafeAreaView>
     )

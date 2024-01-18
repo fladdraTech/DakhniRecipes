@@ -16,7 +16,7 @@ interface CircularAvatarProps {
     // 'review':require('../../assets/Review.png'),
 }
 
-const CircularAvatar : React.FC<CircularAvatarProps> = ({image,width,height}) =>{
+const CircularAvatar : React.FC<CircularAvatarProps> = ({image="image",width=140,height=140}) =>{
 
     const styles=StyleSheet.create({
         profileImage:{

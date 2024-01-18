@@ -1,25 +1,34 @@
 import React from "react";
 import CircularAvatar from "../CircularAvatar"
-import { View ,Text, StyleSheet} from "react-native";
+import { View ,Text, StyleSheet, DimensionValue} from "react-native";
 
 interface ProfileProps {
     Name?:string,
     Label?:string,
-    Description?:string
+    Description?:string,
+    height?:DimensionValue,
+    width?:DimensionValue,
+    image?:string
+    
   }
 
 
   const ProfileComponent: React.FC<ProfileProps> = ({
     Name='Elena',
-    Label='Chef',
-    Description='Lorem, ipsum dolor sit amet !'
+    Label,
+    Description,
+    height,
+    width,
+    image,
+    
   }) => {
 
     const styles=StyleSheet.create({
         Name:{
-          fontSize:25,
+          fontSize:20,
           alignSelf:'center',
-          marginTop:10
+          marginTop:10,
+          height:height
         },
 
         Label:{
@@ -37,7 +46,7 @@ interface ProfileProps {
     return(
       <View>
       <View style={{flexDirection: "column"}}>
-            <CircularAvatar image="photo"></CircularAvatar>
+            {image && <CircularAvatar image="photo"></CircularAvatar>}
             <Text style={{...styles.Name}}>{Name}</Text>
             <Text style={{...styles.Label}}>{Label}</Text>
             <Text style={{...styles.Description}}>{Description}</Text>

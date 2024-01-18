@@ -56,7 +56,7 @@ const NotificationPage = ({navigation}:{navigation:NavigationProp<ParamListBase>
         </View>
     </View>
     </ScrollView>
-    <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0}></BottomNavigationBar>
+    <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0} Press={() => navigation.navigate('RecipeCreatePage')}></BottomNavigationBar>
    </SafeAreaView>
   )
 }

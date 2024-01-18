@@ -139,7 +139,7 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
       
     </Modal>}
 
-    {/* Review Component */}
+    {/* Rate Component */}
 
     {rateComponent &&
     <Modal animationType="slide" transparent={true} visible={modalVisible} onRequestClose={toggleModal} presentationStyle='overFullScreen'>

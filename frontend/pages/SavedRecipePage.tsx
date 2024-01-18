@@ -77,7 +77,7 @@ const SavedRecipePage = ({
         </View>
       </ScrollView>
 
-      <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0} />
+      <BottomNavigationBar onItemTapped={onItemTapped} selectedIndex={0} Press={() => navigation.navigate('RecipeCreatePage')}/>
     </SafeAreaView>
   );
 };
