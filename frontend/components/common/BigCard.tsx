@@ -10,30 +10,39 @@ import LinearGradient from "react-native-linear-gradient";
 import RatingChip from "./RatingChip";
 import Time from "./Time";
 import SavedBtn from "../SavedBtn";
+import { mediaUrl } from "../../utils/urls";
 
 interface CardProps {
   BigCardName: string;
-  BigCardImage?: string;
+  // BigCardImage?: string;
+  imageUri?: string | null;
   BigCardWidth?: DimensionValue;
   BigCardHeight?: DimensionValue;
-  Rating?: string;
+  Rating?: number;
   Review?: string;
+  time?: string;
 }
 const Card: React.FC<CardProps> = ({
   BigCardName,
-  BigCardImage,
+  imageUri,
   BigCardWidth = 300,
   BigCardHeight = 230,
   Rating,
   Review,
+  time,
 }) => {
   return (
-    <View style={{display:'flex'}}>
+    <View style={{ display: "flex" }}>
       <View
         style={{ ...styles.card, width: BigCardWidth, height: BigCardHeight }}
       >
         <ImageBackground
-          source={require("../../assets/BigCardImage.png")}
+          // source={require("../../assets/BigCardImage.png")}
+          source={
+            imageUri
+              ? { uri: mediaUrl + imageUri }
+              : require("../../assets/BigCardImage.png")
+          }
           style={{
             ...styles.image,
             width: BigCardWidth,
@@ -60,7 +69,7 @@ const Card: React.FC<CardProps> = ({
 
         <RatingChip Rating={Rating} />
 
-        <Time Time="15:10"></Time>
+        <Time Time={time}></Time>
 
         {/* <SavedBtn></SavedBtn> */}
       </View>
@@ -110,11 +119,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     opacity: 1,
     zIndex: 1,
-    
   },
 
   name: {
-    
     // width: 150,
     // height: 150,
     borderRadius: 15,
@@ -130,7 +137,7 @@ const styles = StyleSheet.create({
     // position: "absolute",
     bottom: 0,
     left: 0,
-    alignSelf:'flex-start'
+    alignSelf: "flex-start",
   },
 
   review: {
@@ -138,8 +145,8 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     alignSelf: "flex-end",
     paddingRight: 10,
-    position:'absolute',
-    paddingEnd:15
+    position: "absolute",
+    paddingEnd: 15,
   },
 });
 

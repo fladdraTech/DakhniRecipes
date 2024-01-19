@@ -9,7 +9,7 @@ const getToken = async()=>{
 
 export const setApiHeaders =async () => {
   let token:string | null = await getToken();
-  console.log('token inside setApiHeaders', token)
+  // console.log('token inside setApiHeaders', token)
   if (token) {
     serverAPI.defaults.headers.common["x-access-token"] = token;
   } else {

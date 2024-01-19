@@ -30,14 +30,15 @@ const SavedRecipePage = ({
         break;
     }
   };
+
   const { data: savedRecipes } = useGetAll({
     key: "/social/saved-recipe/list/",
     enabled: true,
     onSuccess(data) {
-      console.log("onSuccessonSuccessonSuccess", data);
+      // console.log("onSuccessonSuccessonSuccess", data);
     },
     onError(err) {
-      console.log("ERRRIRIRIRIRI", err);
+      // console.log("ERRRIRIRIRIRI", err);
     },
   });
 

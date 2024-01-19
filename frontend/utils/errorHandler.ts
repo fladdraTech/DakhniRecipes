@@ -1,9 +1,9 @@
 import { ToastAndroid } from "react-native";
 
 let errorHandler = (error: any) => {
-    console.log(error,"<==erorororo")
+    // console.log(error,"<==erorororo")
     let errorMessage = 'Something went wrong';
-    console.log(error, 'error');
+    // console.log(error, 'error');
     if (error.status === 401) {
     } else if (error.error.errors) {
       errorMessage = Array.isArray(error.error.errors)

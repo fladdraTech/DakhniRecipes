@@ -20,6 +20,7 @@ import { Text } from 'react-native';
 import IngredientsList from './components/Procedure';
 import RecipeCreatePage from './pages/RecipeCreatePage';
 import ReviewPage from './pages/ReviewPage';
+import BottomBarContainer from './pages/BottomBarContainer';
 const queryClient = new QueryClient();
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Stack.Screen name="SignInPage" component={SignInPage} />
           <Stack.Screen name="ForgotPassPage" component={ForgotPassPage} />
           <Stack.Screen name="VerifyEmailPage" component={VerifyEmailPage} />
+          <Stack.Screen name="BottomBarContainer" component={BottomBarContainer}/>
           <Stack.Screen name="ResetPassPage" component={ResetPassPage} />
           <Stack.Screen name="SavedRecipePage" component={SavedRecipePage} />
           <Stack.Screen name="NotificationPage" component={NotificationPage} />

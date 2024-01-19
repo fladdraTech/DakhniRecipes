@@ -56,7 +56,7 @@ const RegistrationScreen: React.FC<RegistrationScreenProps> = ({
   const onSubmit = () => {
     // Perform registration logic here
 
-    console.log("<========submittt", getValues());
+    // console.log("<========submittt", getValues());
     // Redirect to another screen if needed
     // navigation.navigate('Home');
 

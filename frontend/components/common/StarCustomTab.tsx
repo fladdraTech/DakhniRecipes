@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { View, Text, TouchableOpacity, StyleSheet, DimensionValue, Image,SafeAreaView, ImageURISource,Modal, Button } from 'react-native'
 // import React from 'react'
 import React, { useEffect,useState } from 'react';
@@ -39,6 +40,62 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
     setModalVisible(!modalVisible);
 
     
+=======
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  DimensionValue,
+  Image,
+  SafeAreaView,
+  ImageURISource,
+} from "react-native";
+// import React from 'react'
+import React, { useEffect, useState } from "react";
+
+interface CustomTabsProps {
+  label: string;
+  width: DimensionValue;
+  height?: DimensionValue;
+  margin: DimensionValue;
+  selected: string | undefined;
+  setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
+  disabled?: boolean;
+  defaultSelected?: boolean;
+  image?: string;
+  tabBorderColor?: string;
+}
+
+const Assets: { [key: string]: ImageURISource } = {
+  star: require("../../assets/gradientstar.png"),
+  share: require("../../assets/ShareIcon.png"),
+  rate: require("../../assets/blackStar.png"),
+  review: require("../../assets/Review.png"),
+};
+const StarCustomTab: React.FC<CustomTabsProps> = ({
+  label,
+  width,
+  height = 30,
+  margin,
+  selected,
+  setSelected,
+  disabled = false,
+  defaultSelected = false,
+  image,
+  tabBorderColor,
+}) => {
+  const chipColor =
+    selected === label ? "#FC1125" : disabled ? "grey" : "white";
+  const labelColor = selected === label || disabled ? "white" : "black";
+  // console.log(image)
+
+  const handlePress = () => {
+    if (!disabled) {
+      setSelected(label);
+      // Logic
+    }
+>>>>>>> 34cac037c942570686c871aca7080552c5cf6863
   };
 
   const imageComponents = Array.from({ length: 5 }, (_, index) => (
@@ -48,10 +105,11 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
   useEffect(() => {
     // Set the first tab as selected by default when the component mounts
     if (defaultSelected) {
-        setSelected(label);
+      setSelected(label);
     }
-  }, [])
+  }, []);
 
+<<<<<<< HEAD
     const styles = StyleSheet.create({
         tabs:{
             marginRight:4,
@@ -84,17 +142,51 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
     }
   return (
     <View>
+=======
+  const styles = StyleSheet.create({
+    tabs: {
+      marginRight: 4,
+      zIndex: 3,
+      bottom: 5,
+      flexDirection: "row",
+      width: width,
+      justifyContent: "space-evenly",
+      borderRadius: 10,
+      borderWidth: 1,
+      height: height,
+      // borderColor: '#FC1125',
+    },
+    labelText: {
+      color: "black",
+      fontWeight: "300",
+      fontSize: 11,
+      alignSelf: "flex-end",
+      margin: 5,
+    },
+  });
+  return (
+>>>>>>> 34cac037c942570686c871aca7080552c5cf6863
     <TouchableOpacity
       style={[
         styles.tabs,
         {
           backgroundColor: chipColor,
+<<<<<<< HEAD
           borderColor: selected !== label ? (tabBorderColor ? tabBorderColor : 'red') : 'white',
+=======
+          borderColor:
+            selected !== label
+              ? tabBorderColor
+                ? tabBorderColor
+                : "red"
+              : "white",
+>>>>>>> 34cac037c942570686c871aca7080552c5cf6863
         },
       ]}
       onPress={handlePress}
       disabled={disabled}
     >
+<<<<<<< HEAD
 
 
 <View style={{overflow: "hidden",borderRadius: 10, zIndex:10}}>
@@ -192,3 +284,17 @@ export default StarCustomTab
           <BigButton btnLabel="Close" Press={toggleModal} btnWidth={100} btnHeight={70} btnBorder={20}/>
           </View>
         </View> */}
+=======
+      <View style={{ overflow: "hidden", borderRadius: 10, zIndex: 10 }}>
+        <Text style={[styles.labelText, { color: labelColor }]}>{label}</Text>
+      </View>
+      <View style={{ alignSelf: "flex-start", marginTop: 5 }}>
+        {image && <Image source={Assets[image]}></Image>}
+      </View>
+      {/* </View> */}
+    </TouchableOpacity>
+  );
+};
+
+export default StarCustomTab;
+>>>>>>> 34cac037c942570686c871aca7080552c5cf6863
