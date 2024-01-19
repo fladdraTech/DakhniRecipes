@@ -52,7 +52,7 @@ const AccountPage = ({
         </View>
 
         <View style={{ margin: 10 }}>
-          <ProfileComponent></ProfileComponent>
+          <ProfileComponent image="photo" Label="Chef" Description="Head Chef at Dakhni Restaurant"></ProfileComponent>
         </View>
       </View>
       
