@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { View, Text, TouchableOpacity, StyleSheet, DimensionValue, Image,SafeAreaView, ImageURISource,Modal, Button } from 'react-native'
 // import React from 'react'
 import React, { useEffect,useState } from 'react';
@@ -12,7 +11,7 @@ interface CustomTabsProps {
     label: string;
     width: DimensionValue;
     height?: DimensionValue;
-    margin: DimensionValue;
+    margin?: DimensionValue;
     selected: string | undefined;   
     setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
     disabled?: boolean;
@@ -39,64 +38,10 @@ const StarCustomTab : React.FC<CustomTabsProps> = ({label, width, height=30, mar
   const toggleModal = () => {
     setModalVisible(!modalVisible);
 
-    
-=======
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  DimensionValue,
-  Image,
-  SafeAreaView,
-  ImageURISource,
-} from "react-native";
-// import React from 'react'
-import React, { useEffect, useState } from "react";
+  }
 
-interface CustomTabsProps {
-  label: string;
-  width: DimensionValue;
-  height?: DimensionValue;
-  margin: DimensionValue;
-  selected: string | undefined;
-  setSelected: React.Dispatch<React.SetStateAction<string | undefined>>;
-  disabled?: boolean;
-  defaultSelected?: boolean;
-  image?: string;
-  tabBorderColor?: string;
-}
 
-const Assets: { [key: string]: ImageURISource } = {
-  star: require("../../assets/gradientstar.png"),
-  share: require("../../assets/ShareIcon.png"),
-  rate: require("../../assets/blackStar.png"),
-  review: require("../../assets/Review.png"),
-};
-const StarCustomTab: React.FC<CustomTabsProps> = ({
-  label,
-  width,
-  height = 30,
-  margin,
-  selected,
-  setSelected,
-  disabled = false,
-  defaultSelected = false,
-  image,
-  tabBorderColor,
-}) => {
-  const chipColor =
-    selected === label ? "#FC1125" : disabled ? "grey" : "white";
-  const labelColor = selected === label || disabled ? "white" : "black";
-  // console.log(image)
-
-  const handlePress = () => {
-    if (!disabled) {
-      setSelected(label);
-      // Logic
-    }
->>>>>>> 34cac037c942570686c871aca7080552c5cf6863
-  };
+  
 
   const imageComponents = Array.from({ length: 5 }, (_, index) => (
     <Image key={index} source={require('../../assets/whiteStar.png')}  />
@@ -109,7 +54,6 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
     }
   }, []);
 
-<<<<<<< HEAD
     const styles = StyleSheet.create({
         tabs:{
             marginRight:4,
@@ -140,53 +84,26 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
       }
       // Logic
     }
+  
   return (
     <View>
-=======
-  const styles = StyleSheet.create({
-    tabs: {
-      marginRight: 4,
-      zIndex: 3,
-      bottom: 5,
-      flexDirection: "row",
-      width: width,
-      justifyContent: "space-evenly",
-      borderRadius: 10,
-      borderWidth: 1,
-      height: height,
-      // borderColor: '#FC1125',
-    },
-    labelText: {
-      color: "black",
-      fontWeight: "300",
-      fontSize: 11,
-      alignSelf: "flex-end",
-      margin: 5,
-    },
-  });
-  return (
->>>>>>> 34cac037c942570686c871aca7080552c5cf6863
     <TouchableOpacity
       style={[
         styles.tabs,
         {
           backgroundColor: chipColor,
-<<<<<<< HEAD
-          borderColor: selected !== label ? (tabBorderColor ? tabBorderColor : 'red') : 'white',
-=======
+         
           borderColor:
             selected !== label
               ? tabBorderColor
                 ? tabBorderColor
                 : "red"
               : "white",
->>>>>>> 34cac037c942570686c871aca7080552c5cf6863
         },
       ]}
       onPress={handlePress}
       disabled={disabled}
     >
-<<<<<<< HEAD
 
 
 <View style={{overflow: "hidden",borderRadius: 10, zIndex:10}}>
@@ -269,32 +186,7 @@ const StarCustomTab: React.FC<CustomTabsProps> = ({
   </View>
   
   )
+
 }
 
-export default StarCustomTab
-
-{/* <View style={{ flexDirection:'row',backgroundColor: 'white', padding: 20, borderRadius: 10, elevation: 5, height:'30%',width:'90%' }}>
-          <View style={{flexDirection:'row',justifyContent:'space-between',width}}>
-          <Text style={{alignSelf:'flex-start'}}>Recipe Link</Text>
-          <Image source={require('../../assets/Close.png')} style={{alignSelf:'flex-end'}}></Image>
-          </View>
-
-          <View style={{flexDirection:'column',alignSelf:'flex-end'}}>
-           <TextInput></TextInput> 
-          <BigButton btnLabel="Close" Press={toggleModal} btnWidth={100} btnHeight={70} btnBorder={20}/>
-          </View>
-        </View> */}
-=======
-      <View style={{ overflow: "hidden", borderRadius: 10, zIndex: 10 }}>
-        <Text style={[styles.labelText, { color: labelColor }]}>{label}</Text>
-      </View>
-      <View style={{ alignSelf: "flex-start", marginTop: 5 }}>
-        {image && <Image source={Assets[image]}></Image>}
-      </View>
-      {/* </View> */}
-    </TouchableOpacity>
-  );
-};
-
 export default StarCustomTab;
->>>>>>> 34cac037c942570686c871aca7080552c5cf6863

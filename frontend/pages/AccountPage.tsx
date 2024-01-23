@@ -97,11 +97,11 @@ const AccountPage = ({
     </ScrollView>
 
     <View style={{ marginTop: 70 }}>
-        <BottomNavigationBar
+        {/* <BottomNavigationBar
           onItemTapped={onItemTapped}
           selectedIndex={0}
           Press={() => navigation.navigate('RecipeCreatePage')}
-        ></BottomNavigationBar>
+        ></BottomNavigationBar> */}
       </View>
       
 
